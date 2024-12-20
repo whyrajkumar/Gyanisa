@@ -1,0 +1,170 @@
+﻿@model Gyanisa.Models.ViewModel.PostViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />*@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
+
+
+
+<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+<div class="container">
+
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'blog')" id="defaultOpen">Blog Create</button>
+        <button class="tablinks" onclick="openCity(event, 'Seo')">SEO</button>
+    </div>
+
+    <!-- Tab content -->
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                <div id="blog" class="tabcontent">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Body" class="control-label"></label>
+                        <textarea id="editor" asp-for="Body"></textarea>
+                        <span asp-validation-for="Body" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input asp-for="Image" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                   
+                </div>
+
+                <div id="Seo" class="tabcontent">
+                    @*<div class="form-group">
+            <label asp-for="MetaTitle" class="control-label"></label>
+            <input asp-for="MetaTitle" class="form-control" />
+            <span asp-validation-for="MetaTitle" class="text-danger"></span>
+        </div>*@
+                    <div class="form-group">
+                        <label asp-for="MetaKeywords" class="control-label"></label>
+                        <input asp-for="MetaKeywords" class="form-control" />
+                        <span asp-validation-for="MetaKeywords" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MetaDescription" class="control-label"></label>
+                        <textarea asp-for="MetaDescription" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="MetaDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Metaabstract" class="control-label"></label>
+                        <textarea asp-for="Metaabstract" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Metaabstract" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>
+
+
+@section scripts{
+
+    @*<script src="~/lib/ckeditor/ckeditor.js"></script>
+    <script>
+        // Replace the <textarea> with a CKEditor
+        CKEDITOR.replace('editor');
+    </script>*@
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#editor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+        </script>
+
+    @*<script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+
+        <script>
+            $('#editor').trumbowyg();
+
+        </script>*@
+    <script>
+        document.getElementById("defaultOpen").click();
+
+        function openCity(evt, TabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(TabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+}

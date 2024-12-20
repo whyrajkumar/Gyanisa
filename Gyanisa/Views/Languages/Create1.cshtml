@@ -1,0 +1,61 @@
+﻿@model Gyanisa.Models.Admin.Language
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Language</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LanguageName" class="control-label"></label>
+                <input asp-for="LanguageName" class="form-control" />
+                <span asp-validation-for="LanguageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LanguageCode" class="control-label"></label>
+                <input asp-for="LanguageCode" class="form-control" />
+                <span asp-validation-for="LanguageCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slug" class="control-label"></label>
+                <input asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaTitle" class="control-label"></label>
+                <input asp-for="MetaTitle" class="form-control" />
+                <span asp-validation-for="MetaTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaKeywords" class="control-label"></label>
+                <input asp-for="MetaKeywords" class="form-control" />
+                <span asp-validation-for="MetaKeywords" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaDescription" class="control-label"></label>
+                <input asp-for="MetaDescription" class="form-control" />
+                <span asp-validation-for="MetaDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Metaabstract" class="control-label"></label>
+                <input asp-for="Metaabstract" class="form-control" />
+                <span asp-validation-for="Metaabstract" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

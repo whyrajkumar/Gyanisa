@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Gyanisa.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- admin notification bar start-->
+            <div class="admin-dropdown-cover pull-right">
+                <div class="dropdown-btn-cover">
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu right-aligned">
+                            <li><p><i class="fa fa-user"></i>Admin</p></li>
+                            <li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>System Setting</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>Account Settings</a></li>
+                            <li><a href="/Dashboard/logout"><i class="fa fa-power-off"></i>Logout</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-dropdown-cover pull-right">
+                <div class="dropdown-btn-cover">
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-envelope-o"></i>
+                        </a>
+                        <ul class="dropdown-menu right-aligned">
+                            <li><p><i class="fa fa-envelope-o"></i>Messages</p></li>
+                            <li><a href="#"><img src="../Dashboard/img/msg1.jpg" />Hi, I am Shamitra</a></li>
+                            <li><a href="#"><img src="../Dashboard/img/msg2.jpg" />Can you read the documents?<span class="badge-green">5</span></a></li>
+                            <li><a href="#"><img src="../Dashboard/img/msg3.jpg" />This is fantastic<span class="badge-red">3</span></a></li>
+                            <li><a href="#"><img src="../Dashboard/img/msg4.jpg" />May i know the admin name?<span class="badge-red">3</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-dropdown-cover pull-right">
+                <div class="dropdown-btn-cover">
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-globe"></i>
+                        </a>
+                        <ul class="dropdown-menu right-aligned">
+                            <li><p><i class="fa fa-globe"></i>Notifications</p></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i>Server Ready To Run</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i>1 Admin Has been Approved</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i>100 Students Registered</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i>Notice Has Been Published</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- admin notification bar close-->
+        </div>
+    </div>
+</nav>

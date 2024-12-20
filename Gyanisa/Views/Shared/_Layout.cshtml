@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+@{var controllerName = this.ViewContext.RouteData.Values["controller"].ToString(); }
+
+<head>
+    <meta charset="utf-8" />
+    <title> @ViewBag.Title -Tuitioner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="referrer" content="origin">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="@ViewBag.Title">
+    <meta property="title" content="@ViewBag.Title">
+    <meta property="og:site_name" content="Tuitioner">
+    <meta property="twitter:title" content="Tuitioner">
+    <meta property="og:url" content="https://www.tuitioner.in/@ViewBag.Canonical">
+    <meta property="og:type" content="website">
+    <meta name="google-site-verification" content="_X2CT3wwqknspwVQJ7eomvxgn7T1U5BjG6U3p4kHELk" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="abstract" content="@ViewBag.Abstract" />
+    <meta name="description" content="@ViewBag.Description">
+    <meta property="og:description" content="@ViewBag.Description">
+    <meta property="twitter:description" content="@ViewBag.Description">
+    <link rel="canonical" href="https://www.tuitioner.in/@ViewBag.Canonical">
+
+
+    @if (controllerName == "Account" || controllerName == "Manage")
+    {
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="Page-Topic" content="@ViewBag.Title">
+        <meta name="googlebot" content="noindex, nofollow">
+        <meta name="YahooSeeker" content="noindex,nofollow">
+        <meta name="MSNBOT" content="noindex,nofollow">
+
+    }
+    else
+    {
+        <meta name="robots" content="index,follow">
+        <meta name="Page-Topic" content="@ViewBag.Title">
+        <meta name="googlebot" content="index, follow">
+        <meta name="YahooSeeker" content="index,follow">
+        <meta name="MSNBOT" content="index,follow">
+    }
+
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="Resource-Type" content="document">
+    <meta name="Distribution" content="global">
+    <meta name="Revisit-After" content="7 days">
+    <meta name="Rating" content="general">
+    <meta name="author" content="Tuitioner">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/style.min.css">
+    <link href="~/lib/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169252667-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-169252667-1');
+    </script>
+
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MR2HWPS');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MR2HWPS"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar container py-0 bg-white" role="banner">
+            <!-- <div class="container"> -->
+            <div class="row align-items-center">
+
+                <div class="col-6 col-xl-2">
+                    <h2 class="mb-0 site-logo"><a asp-controller="Home" asp-action="Index" class="text-black mb-0">Tuition<span class="text-primary">Engineer</span>  </a></h2>
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right font-weight-bold" role="navigation">
+                        <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a asp-action="Blog" asp-controller="Posts">Make Money</a></li>
+                            @*<li class="has-children">
+                                    <a asp-action="Blog" asp-controller="Posts">Online Jobs</a>
+                                    <ul class="dropdown">
+                                        <li><a asp-action="Blog" asp-controller="Posts">PartTime Jobs</a></li>
+                                        <li><a asp-action="Blog" asp-controller="Posts">FullTime Jobs</a></li>
+                                    </ul>
+                                </li>*@
+                            <li><a asp-action="Index" asp-controller="Tutor">Become Tutor</a></li>
+                            @*<li class="has-children">
+                                <a asp-action="About" asp-controller="Home">About</a>
+                                <ul class="dropdown">
+                                    <li><a asp-action="About" asp-controller="Home">About</a></li>
+                                    <li><a asp-action="Privacy" asp-controller="Home">Privacy & Policy</a></li>
+                                    <li><a asp-action="Contact" asp-controller="Home">Contact</a></li>
+                                </ul>
+                            </li>*@
+                            @*<li><a asp-action="Blog" asp-controller="Posts">Blog</a></li>*@
+
+                            @await Html.PartialAsync("_LoginPartial")
+
+                            @*<li class="ml-xl-3 login"><a href="~/Account/Login"><span class="border-left pl-xl-4"></span>Log In</a></li>
+                                <li><a href="~/Account/register">Register</a></li>*@
+
+                            @if (controllerName == "Tutor")
+                            {
+                                <li>
+                                    <a class="cta" data-toggle="modal" data-target="#post_req">
+                                        <span class="bg-primary text-white rounded">
+                                            + Post Request
+                                        </span>
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="d-inline-block d-xl-none ml-auto py-3 col-6 text-right" style="position: relative; top: 3px;">
+                    <a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+                </div>
+            </div>
+            <!-- </div> -->
+
+        </header>
+
+        @if (controllerName == "Account" || controllerName == "Manage")
+        {
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        }
+
+        @if (controllerName == "Tutor")
+        {@await Component.InvokeAsync("PostRequirement")
+    }
+
+        @RenderBody()
+        @Html.Partial("Footer")
+    </div>
+    @await Component.InvokeAsync("ChatAI")
+
+    <script src="~/js/main.min.js"></script>
+
+    @*<script src="~/js/addtohomescreen.js"></script>*@
+    <!-- Additionally, include jQuery (necessary for bookmark script) -->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,523 @@
+﻿@model IEnumerable<Gyanisa.Models.Blog.Post>
+@{
+
+    ViewBag.Title = "शिक्षा,कैरियर और पैसे के लिए भारत का सबसे भरोसेमंद ब्लॉग";
+    ViewBag.Keywords = "paise kamaaye,online paise kaise,online paise kamaaye,atirikt paise";
+    ViewBag.Description = "Tuition Engineer भारत का सबसे बड़ा पर्सनल फाइनेंस ब्लॉग है, जो पैसे कमाने, पैसे बचाने और निवेश के टिप्स सिखाता है";
+    ViewBag.Abstract = "चाहे आप पैसे कमाना चाहते हों, शिक्षा की तलाश में हों या अपना करियर आगे बढ़ाना चाहते हों, केवल Tuitioner पर खोजें, भारत का सबसे बड़ा ब्लॉग पैसा, करियर और education";
+    int no = 0;
+    int no2 = 0;
+    var image_path = "";
+}
+<!-- Header #homepage --> @*background-image: url(images/hero_2.jpg);*@
+<div class="site-blocks-cover overlay" style="background-color:#a2c3da;" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="row justify-content-center" style="margin-top:30px;">
+                    <div class="text-left">
+                        <h1 class="col-md-12 text-left font-weight-bold">आप क्या सीखना चाहते हैं? <span class="text-primary">क्या है क्यों हैं कैसे होता है? </span> Online </h1>
+                        <p class="text-white">
+                            @*&nbsp;&larr; earn money anywhere to work from home.*@
+                        </p>
+                    </div>
+                </div>
+                <div class="form-search-wrap">
+                    <form id="search_form" method="get" asp-controller="" asp-action="" accept-charset="utf-8">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8 mb-4 mb-xl-0 col-xl-4">
+                                <input id="GetFreeTop" class="form-control rounded" name="FirstName" placeholder="Your Name" />
+                            </div>
+                            <div class="col-lg-8 mb-4 mb-xl-0 col-xl-4">
+                                <input id="GetFreeTop" class="form-control rounded" name="EmailRequired" placeholder="Your Email" />
+                            </div>
+
+                            <div class="col-lg-8 mb-4 mb-xl-0 col-xl-4">
+                                <b>  <input type="submit" class="btn btn-primary text-white btn-block rounded" value="GET 7 FREE TIPS | NOW"></b>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="overlap-category mb-5">
+            <div class="row align-items-stretch no-gutters">
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a asp-controller="posts" asp-action="details" asp-route-id="10" target="_blank" title="" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-house"></span></span>
+                        <p>  <span class="caption mb-2 d-block font-weight-bold">Start a Blog</span></p>
+                        <span class="number">3,921</span>
+                    </a>
+                </div>
+                @{
+                    var rr1 = Model.Select(t => t.postGroup.PostGroupName).Distinct().Take(5);
+                    foreach (var item in rr1)
+                    {
+                        <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                            <a href="" target="_blank" title="" class="popular-category h-100">
+                                <span class="icon"><span class="flaticon-books"></span></span>
+                                <h3>  <span class="caption mb-2 d-block font-weight-bold"> @item</span></h3>
+                                <span class="number">398</span>
+                            </a>
+                        </div>
+                    }
+                }
+              
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="h5 mb-4 text-black">Trading Now</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12  block-13">
+                <div class="owl-carousel nonloop-block-13">
+                    @foreach (var item in Model.Take(8))
+                    {
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            image_path = $"/BlogImage/{item.Image}";
+                        }
+                        else
+                        {
+                            image_path = $"/BlogImage/img_1.webp";
+                        }
+                        <div class="d-block d-md-flex listing vertical">
+                            <a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title" class="img d-block" style="background-image: url('@image_path')"></a>
+                            <div class="lh-content">
+                                <span class="category font-weight-bold">@item.postGroup.PostGroupName</span>
+                                <a id="bookmark-this" href="#" class="bookmark"><span class="icon-money"></span></a>
+                                <h3 class="font-weight-bold"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">   @item.Title</a></h3>
+                                <P>  @item.Metaabstract </P>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section" data-aos="fade">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center border-primary">
+                <h2 class="font-weight-light ">
+                    तेजी से पैसा कैसे कमाएं
+                    <span class="text-primary">?</span>
+                </h2>
+                <p class="color-black">@*आप नकदी की तत्काल आवश्यकता में हैं और तुरंत कमाना चाहते हैं*@</p>
+            </div>
+        </div>
+        <div class="row">
+            <style>
+                .b-0 {
+                    bottom: 0;
+                }
+
+                .bg-shadow {
+                    background: rgba(76, 76, 76, 0);
+                    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179, 171, 171, 0)), color-stop(49%, rgba(48, 48, 48, 0.37)), color-stop(100%, rgba(19, 19, 19, 0.8)));
+                    background: linear-gradient(to bottom, rgba(179, 171, 171, 0) 0%, rgba(48, 48, 48, 0.71) 49%, rgba(19, 19, 19, 0.8) 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+                }
+
+                .top-indicator {
+                    right: 0;
+                    top: 1rem;
+                    bottom: inherit;
+                    left: inherit;
+                    margin-right: 1rem;
+                }
+
+                .overflow {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .zoom img {
+                    transition: all 0.2s linear;
+                }
+
+                .zoom:hover img {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            </style>
+            <div class="col-12 pb-5">
+                <!--SECTION START-->
+                <section class="row">
+                    <!--Start slider news-->
+                    <div class="col-12 col-md-6 pb-0 pb-md-3 pt-2 pr-md-1">
+                        <div id="featured" class="carousel slide carousel" data-ride="carousel">
+                            <!--dots navigate-->
+                            <ol class="carousel-indicators top-indicator">
+                                <li data-target="#featured" data-slide-to="0" class="active"></li>
+                                <li data-target="#featured" data-slide-to="1"></li>
+                                <li data-target="#featured" data-slide-to="2"></li>
+                                <li data-target="#featured" data-slide-to="3"></li>
+                            </ol>
+                            <!--carousel inner-->
+                            <div class="carousel-inner">
+                                <!--Item slider-->
+                                @foreach (var item in Model.Skip(8).Take(4))
+                                {
+
+                                    if (no == 0)
+                                    {
+                                        <div class="carousel-item active">
+                                            <div class="card border-0 rounded-0 text-light overflow zoom">
+                                                <div class="position-relative">
+                                                    <!--thumbnail img-->
+                                                    <div class="ratio_left-cover-1 image-wrapper">
+                                                        <a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">
+
+                                                            @if (!string.IsNullOrEmpty(item.Image))
+                                                            {
+                                                                image_path = $"/BlogImage/{item.Image}";
+
+                                                                <img class="img-fluid w-100"
+                                                                     src="@image_path"
+                                                                     alt="@item.Title">
+                                                            }
+                                                            else
+                                                            {
+                                                                <img class="img-fluid w-100"
+                                                                     src="../BlogImage/img_1.webp"
+                                                                     alt="@item.Title">
+                                                            }
+                                                        </a>
+                                                    </div>
+                                                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                                        <!--title-->
+                                                        <a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">
+                                                            <h2 class="h3 post-title text-white my-1 font-weight-bold">@item.Title</h2>
+                                                        </a>
+                                                        <!-- meta title -->
+                                                        <div class="news-meta">
+                                                            <span class="news-author">by <a class="text-white font-weight-bold" href="">Tuitioner</a></span>
+                                                            <span class="news-date">@item.Created.ToString("dddd, dd MMMM yyyy")</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    { <!--Item slider-->
+                                        <div class="carousel-item">
+                                            <div class="card border-0 rounded-0 text-light overflow zoom">
+                                                <div class="position-relative">
+                                                    <!--thumbnail img-->
+                                                    <div class="ratio_left-cover-1 image-wrapper">
+                                                        <a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">
+
+                                                            @if (!string.IsNullOrEmpty(item.Image))
+                                                            {
+                                                                image_path = $"/BlogImage/{item.Image}";
+
+                                                                <img class="img-fluid w-100"
+                                                                     src="@image_path"
+                                                                     alt="@item.Title">
+                                                            }
+                                                            else
+                                                            {
+                                                                <img class="img-fluid w-100"
+                                                                     src="../BlogImage/img_1.webp"
+                                                                     alt="@item.Title">
+                                                            }
+                                                        </a>
+                                                    </div>
+                                                    <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
+                                                        <!--title-->
+                                                        <a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">
+                                                            <h2 class="h3 post-title text-white my-1 font-weight-bold">@item.Title</h2>
+                                                        </a>
+                                                        <!-- meta title -->
+                                                        <div class="news-meta">
+                                                            <span class="news-author">by <a class="text-white font-weight-bold" asp-controller="home" asp-action="about" target="_blank"><span class="text-primary"> Tuition Engineer </span></a></span>
+                                                            <span class="news-date">@item.Created.ToString("dddd, dd MMMM yyyy")</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    no++;
+                                }
+                                <!--end item slider-->
+                            </div>
+                            <!--end carousel inner-->
+                        </div>
+                        <!--navigation-->
+                        <a class="carousel-control-prev" href="#featured" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#featured" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <!--End slider news-->
+                    <!--Start box news-->
+                    <div class="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
+                        <div class="row">
+                            <!--news box-->
+                            @foreach (var item in Model.Skip(12).Take(4))
+                            {
+                                image_path = $"/BlogImage/{item.Image}";
+                                @if (string.IsNullOrEmpty(item.Image))
+                                {
+                                    image_path = "/BlogImage/img_1.webp";
+                                }
+                               
+                                if (no2 == 0)
+                                {
+
+                                    <div class="col-6 pb-1 pt-0 pr-1">
+                                        <div class="card border-0 rounded-0 text-white overflow zoom">
+                                            <div class="listing-item">
+                                                <div class="listing-image">
+                                                    <img src="@image_path" alt="@item.Title" class="img-fluid">
+                                                </div>
+                                                <div class="listing-item-content">
+                                                    @*<a href="#" class="bookmark"><span class="icon-heart"></span></a>*@
+                                                    @*<a class="px-3 mb-3 category" href="#">@item.postGroup.PostGroupName</a>*@
+                                                    <h2 class="mb-1 font-weight-bold"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">@item.Title</a></h2>
+                                                    @*  <span class="address">Udaipur, Rajasthan</span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (no2 == 1)
+                                {
+                                    <div class="col-6 pb-1 pl-1 pt-0">
+                                        <div class="card border-0 rounded-0 text-white overflow zoom">
+                                            <div class="listing-item">
+                                                <div class="listing-image">
+                                                    <img src="@image_path" alt="@item.Title" class="img-fluid">
+                                                </div>
+                                                <div class="listing-item-content">
+                                                    <h2 class="mb-1 font-weight-bold"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">@item.Title</a></h2>
+                                                    @*  <span class="address">Udaipur, Rajasthan</span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (no2 == 2)
+                                {
+                                    <div class="col-6 pb-1 pr-1 pt-1">
+                                        <div class="card border-0 rounded-0 text-white overflow zoom">
+                                            <div class="listing-item">
+                                                <div class="listing-image">
+                                                    <img src="@image_path" alt="@item.Title" class="img-fluid">
+                                                </div>
+                                                <div class="listing-item-content">
+                                                    <h2 class="mb-1 font-weight-bold"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">@item.Title</a></h2>
+                                                    @*  <span class="address">Udaipur, Rajasthan</span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (no2 == 3)
+                                {
+                                    <div class="col-6 pb-1 pl-1 pt-1">
+                                        <div class="card border-0 rounded-0 text-white overflow zoom">
+                                            <div class="listing-item">
+                                                <div class="listing-image">
+                                                    <img src="@image_path" alt="@item.Title" class="img-fluid">
+                                                </div>
+                                                <div class="listing-item-content">
+                                                    <h2 class="mb-1 font-weight-bold"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" title="@item.Title">@item.Title</a></h2>
+                                                    @*  <span class="address">Udaipur, Rajasthan</span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                no2++;
+                            }
+                            <!--end news box-->
+                        </div>
+                    </div>
+                    <!--End box news-->
+                </section>
+                <!--END SECTION-->
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section-ptb bg-white bg-5 ">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <div class="heading mb-80">
+                    <h2>What is Tuition Engineer</h2>
+                    <p class="mb-20">understand about online income. <br class="d-none d-md-block"> and how to get</p>
+                    <hr class="line bw-2 mx-auto line-sm mb-5">
+                    <hr class="line bw-2 mx-auto">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="client-testimonial position-relative">
+                    <div class="client-nav">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#client1" data-toggle="tab">
+                                    <img class="drop-shadow" src="~/images/1.png" alt="Client Image">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#client2" data-toggle="tab">
+                                    <img class="drop-shadow" src="~/images/2.png" alt="Client Image">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#client3" data-toggle="tab">
+                                    <img class="drop-shadow" src="~/images/3.png" alt="Client Image">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#client4" data-toggle="tab">
+                                    <img class="drop-shadow" src="~/images/4.png" alt="Client Image">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#client5" data-toggle="tab">
+                                    <img class="drop-shadow" src="~/images/5.png" alt="Client Image">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-10 col-md-8 col-lg-6 mx-auto">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="client1">
+                                    <div class="client-thumb mx-auto mb-25">
+                                        <img class="drop-shadow" src="~/images/1.png" alt="Client Image">
+                                    </div>
+                                    <div class="client-desc bg-white d-flex align-items-center">
+                                        <div class="text mx-auto">
+                                            <h4 class="mb-10">Ethan Riley</h4>
+                                            <h6>Hade Of Idea</h6>
+                                            <p>Richard McClintock, a Latin professor at Hampden <br class="d-none d-lg-block">I'm impressed with the earning you are getting from Ideas.Good advice on online make money</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Client End -->
+                                <div class="tab-pane fade" id="client2">
+                                    <div class="client-thumb mx-auto mb-25">
+                                        <img class="drop-shadow" src="~/images/2.png" alt="Client Image">
+                                    </div>
+                                    <div class="client-desc bg-white d-flex align-items-center">
+                                        <div class="text mx-auto">
+                                            <h4 class="mb-10">Evelyn Green</h4>
+                                            <h6>Photographer</h6>
+                                            <p>Many desktop publishing packages and web page editors <br class="d-none d-lg-block">These are nice step by step descriptions. Each and every point gives a different idea. Thanks for sharing such a nice article.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Client End -->
+                                <div class="tab-pane fade" id="client3">
+                                    <div class="client-thumb mx-auto mb-25">
+                                        <img class="drop-shadow" src="~/images/3.png" alt="Client Image">
+                                    </div>
+                                    <div class="client-desc bg-white d-flex align-items-center">
+                                        <div class="text mx-auto">
+                                            <h4 class="mb-10">Willie Soto</h4>
+                                            <h6>Designer</h6>
+                                            <p>
+                                                Virginia, looked up one of the more obscure Latin <br class="d-none d-lg-block"> I’ve used tons of those online surveys recently so as to ascertain if they really work. I did them whilst on lunch breaks or during TV commercials, for instance . They really do work but are time-consuming!
+                                                Some survey sites have better payouts than others.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Client End -->
+                                <div class="tab-pane fade" id="client4">
+                                    <div class="client-thumb mx-auto mb-25">
+                                        <img class="drop-shadow" src="~/images/4.png" alt="Client Image">
+                                    </div>
+                                    <div class="client-desc bg-white d-flex align-items-center">
+                                        <div class="text mx-auto">
+                                            <h4 class="mb-10">Marie Munoz</h4>
+                                            <h6>Content Writer</h6>
+                                            <p>Words which don't look even slightly believable. <br class="d-none d-lg-block">This is a fantastic article filled with great content. My hobby is participating in paid surveys, and I enjoy it quite a lot.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Client End -->
+                                <div class="tab-pane fade" id="client5">
+                                    <div class="client-thumb mx-auto mb-25">
+                                        <img class="drop-shadow" src="~/images/5.png" alt="Client Image">
+                                    </div>
+                                    <div class="client-desc bg-white d-flex align-items-center">
+                                        <div class="text mx-auto">
+                                            <h4 class="mb-10">Susan kesu Gardner</h4>
+                                            <h6>Manager</h6>
+                                            <p> <br class="d-none d-lg-block"> Thank you for this list</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Client End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="site-section" data-aos="fade">
+    <div class="container">
+        <div class="row justify-content-lg-center mb-5">
+            <div class="col-md-7 text-center border-primary">
+                <h2 class="font-weight-light ">
+                    <span class="text-primary"> Money Management</span> 
+                </h2>
+                @* <p class="color-black">you’re in urgent need of money & want to earn immediately</p>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="home_tutoring">
+    <div class="main_wrapper">
+        <div class="inner_wrapper">
+            @foreach (var item in Model.Skip(16).Take(4))
+            {
+                image_path = $"/BlogImage/{item.Image}";
+                @if (string.IsNullOrEmpty(item.Image))
+                {
+                    image_path = "/BlogImage/img_1.webp";
+                }
+                <ul style="flex:0 0 230px; margin-right:5px;">
+                    <li>
+                        <div class="listing-item">
+                            <div class="listing-image">
+                                <img src="@image_path" alt="@item.Title" class="img-fluid">
+                            </div>
+                            <div class="listing-item-content">
+                                @*<a href="#" class="bookmark"><span class="icon-heart"></span></a>
+                            <a class="px-3 mb-3 category" href="#">IIM</a>*@
+                                <h2 class="mb-1"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))">@item.Title</a></h2>
+                                @*<span class="address">Udaipur, Rajasthan</span>*@
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+
+

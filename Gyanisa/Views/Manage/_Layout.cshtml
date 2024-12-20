@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+ 
+
+<div class="container">
+    <div>
+        <h4>Settings</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                @await Html.PartialAsync("_ManageNav")
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+

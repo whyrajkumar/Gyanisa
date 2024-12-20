@@ -1,0 +1,68 @@
+﻿@model Gyanisa.Models.Admin.TermAndService
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+ 
+<div>
+    <h4>Term And Service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Aboutus)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Aboutus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ)
+        </dt>
+        <dd>
+            <p>  @Html.Raw(Model.FAQ)</p> 
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Guidelines)
+        </dt>
+        <dd>
+            <p>  @Html.Raw(Model.Guidelines)</p> 
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentRates)
+        </dt>
+        <dd>
+            <p>  @Html.Raw(Model.PaymentRates)</p> 
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Licenses)
+        </dt>
+        <dd>
+            <p>  @Html.Raw(Model.Licenses)</p> 
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TermsCondition)
+           
+        </dt>
+        <dd>
+           
+            <p>  @Html.Raw(Model.TermsCondition)</p>
+
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivacyPolicy)
+        </dt>
+        <dd>
+            <p>  @Html.Raw(Model.PrivacyPolicy)</p>
+            
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+ 

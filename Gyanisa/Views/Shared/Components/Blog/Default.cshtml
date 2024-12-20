@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Gyanisa.Models.Blog.Post>
+@{
+//ViewData["Title"] = "Default";
+}
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center border-primary">
+                <h2 class="font-weight-light text-primary">Our Blog</h2>
+                <p class="color-black-opacity-5">See Our Daily &amp; Updates</p>
+            </div>
+        </div>
+        <div class="row mb-3 align-items-stretch">
+            @foreach (var item in Model.Take(3))
+            {
+                var image_path = "";
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+                    <div class="h-entry">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            image_path = $"/BlogImage/{item.Image}";
+                            if (image_path == null || image_path == "")
+                            {
+                                image_path = $"/BlogImage/empty_blog.jpg";
+                            }
+                        }
+                        else
+                        {
+                            image_path = $"/BlogImage/empty_blog.jpg";
+                        }
+
+                        <img src="@image_path" alt="@item.Title" class="img-fluid rounded" />
+                        <h2 class="font-size-regular"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" class="text-black">@item.Title</a></h2>
+                        <div class="meta mb-3">by Tuitioner<span class="mx-1">&bullet;</span> @item.Created.ToShortDateString() <span class="mx-1">&bullet;</span> <a href="#">News</a></div>
+                       
+                        <div style="height:100px;overflow:hidden;">  @Html.Raw(item.Body)</div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-12 text-center mt-4">
+                <a asp-action="blog" asp-controller="Posts" class="btn btn-primary rounded py-2 px-4 text-white">View All Posts</a>
+            </div>
+        </div>
+    </div>
+</div>

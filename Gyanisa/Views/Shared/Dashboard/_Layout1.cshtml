@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tuitioner- Dashboard</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="~/dashboard/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="~/dashboard/css/dataTables.bootstrap.min.css">
+    <link rel="~/dashboard/css/jquery.dataTables.min.css">
+    <link href="~/dashboard/css/dataTables.jqueryui.min.css" rel="stylesheet">
+    <link href="~/dashboard/css/dataTables.semanticui.min.css" rel="stylesheet">
+    <link href="~/dashboard/css/dataTables.foundation.min.css" rel="stylesheet">
+
+    <link href="~/dashboard/css/dataTables.material.min.css" rel="stylesheet">
+    <link href="~/dashboard/css/dataTables.uikit.min.css" rel="stylesheet">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="~/dashboard/css/style.css">
+</head>
+
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+
+        @await Html.PartialAsync("~/Views/Shared/Dashboard/_Sidebar.cshtml")
+        <!-- Page Content Holder -->
+        <div id="content">
+            <!-- top menu start-->
+
+            @await Html.PartialAsync("~/Views/Shared/Dashboard/_Header.cshtml")
+            <!-- top menu close-->
+            <!-- braedcrumb start -->
+            <!-- braedcrumb close -->
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.es.min.js"></script>
+    <script src="~/Dashboard/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Dashboard/js/jquery.dataTables.min.js"></script>
+    <script src="~/Dashboard/js/dataTables.foundation.min.js"></script>
+    <script src="~/Dashboard/js/dataTables.uikit.min.js"></script>
+    <script src="~/Dashboard/js/dataTables.semanticui.min.js"></script>
+    <script src="~/Dashboard/js/dataTables.material.min.js"></script>
+    <script src="~/Dashboard/js/dataTables.jqueryui.min.js"></script>
+
+
+    <!-- datepicker -->
+    <script>
+        $(function () {
+            $('#datetimepicker1').datepicker({
+                format: "dd/mm/yyyy",
+                language: "es",
+                autoclose: true,
+                todayHighlight: true
+            });
+        });</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });</script>
+    <script type="text/javascript">$('#mydata').dataTable();</script>
+
+
+
+
+</body>
+</html>

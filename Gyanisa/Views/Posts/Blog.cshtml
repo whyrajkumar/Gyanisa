@@ -1,0 +1,116 @@
+﻿@model PagedList.Core.IPagedList<Gyanisa.Models.Blog.Post>
+@using PagedList.Core.Mvc
+
+
+@{
+    ViewData["Title"] = "Make Money";
+    ViewBag.Title = ViewData["Title"];
+    ViewBag.Keywords = "make money,money online,earn money,online money,part time jobs";
+    ViewBag.Description = @"part time online jobs,full time online jobs online money making,how to make money, cash online,fast cash,make money fast,how to make,how to earn,money making.";
+    ViewBag.Abstract = ViewBag.Description;
+    ViewBag.Canonical = "posts/blog";
+     var image_path = "";
+}
+<style>
+    /*p {
+        width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }*/
+</style>
+
+<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-8 text-center">
+                        <h1>Blog</h1>
+                        @*<p class="mb-0"></p>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+
+                <div class="row mb-3 align-items-stretch">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 col-lg-6 mb-4 mb-lg-4">
+                            <div class="h-entry">
+
+                                @if (!string.IsNullOrEmpty(@item.Image))
+                                {
+                                    image_path = $"/BlogImage/{@item.Image}";
+                                    <img src="@image_path" alt="@item.Title" class="img-fluid rounded">
+                                }
+                                else
+                                {
+                                    <img src="~/BlogImage/empty_blog.jpg" alt="@item.Title" class="img-fluid rounded">
+                                }
+
+                              
+                                <h2 class="font-weight-bold "><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" target="_blank" class="text-black">@item.Title</a></h2>
+                                <div class="meta mb-3">by Tuitioner<span class="mx-1">&bullet;</span> @item.Created.ToString("dd MMMM yyyy") <span class="mx-1">&bullet;</span> <a href="#"> @item.postGroup.PostGroupName</a></div>
+                                <p>  @item.Metaabstract</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="col-12 text-center mt-5">
+                    <pager class="pager-container" list="@Model " options="@PagedListRenderOptions.TwitterBootstrapPager4"
+                           asp-action="Blog" asp-controller="Posts"
+                           asp-route-query="@Model" />
+                </div>
+            </div>
+            <div class="col-md-4 ml-auto">
+                <div class="mb-6">
+                    <h3 class="h5 text-black mb-3">Search</h3>
+                    <form action="#" method="post">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="mb-5">
+                    <h3 class="h5 text-black mb-3">Popular Post</h3>
+
+                    @foreach (var item in Model.Take(8))
+                    {
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                @if (!string.IsNullOrEmpty(@item.Image))
+                                {
+                                    image_path = $"/BlogImage/{@item.Image}";
+                                    <img src="@image_path" alt="@item.Title" width="100px">
+                                }
+                                else
+                                {
+                                    <img src="~/BlogImage/empty_blog.jpg" alt="@item.Title" width="100px">
+                                }
+                            </div>
+                            <div class="col-md-8">
+                                <div class="font-weight-bold glyphicon-text-size"><a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))" class="text-black">@item.Title</a></div>
+                            </div>
+                        </div>
+                        <hr />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

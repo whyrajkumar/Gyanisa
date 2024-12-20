@@ -1,0 +1,198 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework> 
+    <UserSecretsId>aspnet-Gyanisa-B1A53B61-373D-4BD3-B8F2-50CBE0F933E9</UserSecretsId>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+    <ApplicationIcon />
+    <OutputType>WinExe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Release\**" />
+    <Content Remove="Release\**" />
+    <EmbeddedResource Remove="Release\**" />
+    <None Remove="Release\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
+    <PackageReference Include="BundlerMinifier.Core" Version="2.9.406" />
+    <!--<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />-->
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.2" />
+    <PackageReference Include="PagedList.Core.Mvc" Version="1.2.0" />
+    <PackageReference Include="PhotoSauce.MagicScaler" Version="0.9.1" />
+    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <!--<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />-->
+    <!--<DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />-->
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  
+ 
+  
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
+
+  
+ 
+  
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\dashboard\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\dashboard\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\dashboard\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\dashboard\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\dashboard\fonts\ionicons.svg" />
+    <None Include="wwwroot\dashboard\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.foundation.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.foundation.min.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.jqueryui.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.semanticui.js" />
+    <None Include="wwwroot\dashboard\js\dataTables.semanticui.min.js" />
+    <None Include="wwwroot\dashboard\js\jquery.dataTables.js" />
+    <None Include="wwwroot\dashboard\js\jquery.dataTables.min.js" />
+  </ItemGroup>
+
+  
+ 
+  
+  <ItemGroup>
+    <Reference Include="MimeKit">
+      <HintPath>..\..\Gyanisa - Copy (30)\Gyanisa\bin\Debug\netcoreapp2.0\publish\MimeKit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Courses\Create1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Courses\Edit1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Dashboard\Index.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Languages\Create1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Languages\Edit1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Languages\Index1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Manage\UpdateProfile.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Posts\Create1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Posts\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Posts\Edit1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Posts\Index1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Privacy\Create1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Privacy\Details1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Privacy\Edit1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Privacy\Index1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\Blog\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\ChatAI\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\PostRequirement\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\TeacherInquiry\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\TutorRecommend\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\VoteNow.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Subjects\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\User\Create.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\User\Delete.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\User\Details1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\User\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\User\Edit.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\User\Index1.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <!--<Content Update="wwwroot/content/blog/*.*" CopyToPublishDirectory="Never" />
+    <Content Update="wwwroot/content/user/*.*" CopyToPublishDirectory="Never" />-->
+    <Content Update="wwwroot/lib/Trumbowyg-master/*.*" CopyToPublishDirectory="Never" />
+    <Content Update="wwwroot/lib/Trumbowyg-master/**/*.*" CopyToPublishDirectory="Never" />
+    <Content Update="wwwroot/lib/Trumbowyg-master/dist/**/*.*" CopyToPublishDirectory="Always" />
+    
+    
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+  
+  
+</Project>

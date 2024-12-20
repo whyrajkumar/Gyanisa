@@ -1,0 +1,73 @@
+﻿@model Gyanisa.Models.Blog.PostGroup
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PostGroup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostGroupName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostGroupName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostGroupCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostGroupCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostGroupDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostGroupDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaKeywords)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaKeywords)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Metaabstract)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Metaabstract)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PostGroupID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

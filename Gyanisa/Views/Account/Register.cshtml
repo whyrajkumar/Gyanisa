@@ -1,0 +1,300 @@
+﻿@model RegisterViewModel
+ 
+@{
+    ViewBag.Title = "Trainers, Tutors and Home Tutors - Register and Find Jobs on Tuition Engineer";
+    ViewBag.Description = "Register as a trainer, tutor or home tutor and become part of the tutor community, India's largest trainer on tuitioner.in. Find more students and make free inquiries about your tuition offerings.";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+                <h4>Sign Up as a Tutor</h4>
+                <hr />
+
+                <div class="form-group">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary">
+                            <input style="width:20px; height:20px;" type="radio" name="Role" id="Tutor" value="Tutor"> &nbsp;&nbsp; &nbsp;<b>Only Tutor</b>  &nbsp;&nbsp; &nbsp;
+                        </label>
+
+                        &nbsp;&nbsp;
+                        <label class="btn btn-primary">
+                            <input style="width:20px; height:20px;" type="radio" name="Role" id="Institute" value="Institute"> <b>Only Institute</b> &nbsp;&nbsp; &nbsp;
+                        </label>
+                    </div>
+                </div>
+
+
+                @*<div class="form-group row">
+                <label for="gender" class="col-md-2 control-label">Gender:</label>
+                <input class="form-check-input" type="radio" name="Role" id="Tutor" checked="@ViewData["Tutor"]" value="Tutor"> Tutor <br />
+                <input class="form-check-input" type="radio" name="Role" id="Student" value="Student"> Student
+            </div>*@
+
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <label asp-for="FirstName"></label>
+                <div class="input-group">
+                    <input asp-for="FirstName" class="form-control" />
+                    <span class="input-group-addon"><i class="fa fa-user-plus"></i></span>
+                    @*   <span asp-validation-for="FirstName" class="text-danger"></span>*@
+
+                </div>
+                <label asp-for="LastName"></label>
+                <div class="form-group">
+                    <input asp-for="LastName" class="form-control" />
+                    @* <span asp-validation-for="LastName" class="text-danger"></span>*@
+                </div>
+                <label asp-for="Email"></label>
+                <div class="input-group">
+                    <input asp-for="Email" class="form-control" />
+                    @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                </div>
+                <label asp-for="Password"></label>
+                <div class="input-group">
+                    <input asp-for="Password" class="form-control" />
+                    @*<span asp-validation-for="Password" class="text-danger"></span>*@
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    @*<span asp-validation-for="ConfirmPassword" class="text-danger"></span>*@
+                </div>
+                <button type="submit" class="btn btn-default">Register</button>
+
+
+
+
+
+            </form>
+            <p style="font-size:smaller;"><label>By Signing Up, you agree to our   <a asp-action="privacy" asp-controller="home"> <span class="text-primary"> Terms of Use</span></a>  &amp; <a asp-action="privacy" asp-controller="home"> <span class="text-primary">Privacy Policy</span></a></label></p>
+            <div class="form-group">
+               
+                <p>
+                    <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]"><span class="text-primary">Already Register?</span></a>
+                </p>
+            </div>
+        </div>
+
+     <style>
+         /* Base CSS */
+         .alignleft {
+             float: left;
+             margin-right: 15px;
+         }
+
+         .alignright {
+             float: right;
+             margin-left: 15px;
+         }
+
+         .aligncenter {
+             display: block;
+             margin: 0 auto 15px;
+         }
+
+         a:focus {
+             outline: 0 solid
+         }
+
+         img {
+             max-width: 100%;
+             height: auto;
+         }
+
+         .fix {
+             overflow: hidden
+         }
+
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6 {
+             margin: 0 0 15px;
+             font-weight: 700;
+         }
+
+         html,
+         body {
+             height: 100%
+         }
+
+         a {
+             -moz-transition: 0.3s;
+             -o-transition: 0.3s;
+             -webkit-transition: 0.3s;
+             transition: 0.3s;
+             color: #333;
+         }
+
+             a:hover {
+                 text-decoration: none
+             }
+
+
+
+         .search-box {
+             margin: 80px auto;
+             position: absolute;
+         }
+
+         .caption {
+             margin-bottom: 50px;
+         }
+
+         .loginForm input[type=text], .loginForm input[type=password] {
+             margin-bottom: 10px;
+         }
+
+         .loginForm input[type=submit] {
+             background: #fb044a;
+             color: #fff;
+             font-weight: 700;
+         }
+
+
+         #pswd_info {
+             background: #dfdfdf none repeat scroll 0 0;
+             color: #fff;
+             left: 20px;
+             position: absolute;
+             top: 115px;
+         }
+
+             #pswd_info h4 {
+                 background: black none repeat scroll 0 0;
+                 display: block;
+                 font-size: 14px;
+                 letter-spacing: 0;
+                 padding: 17px 0;
+                 text-align: center;
+                 text-transform: uppercase;
+             }
+
+             #pswd_info ul {
+                 list-style: outside none none;
+             }
+
+                 #pswd_info ul li {
+                     padding: 10px 45px;
+                 }
+
+
+
+         .valid {
+             background: rgba(0, 0, 0, 0) no-repeat scroll 2px 6px;
+             color: green;
+             line-height: 21px;
+             padding-left: 22px;
+         }
+
+         .invalid {
+             background: rgba(0, 0, 0, 0) no-repeat scroll 2px 6px;
+             color: red;
+             line-height: 21px;
+             padding-left: 22px;
+         }
+
+
+         #pswd_info::before {
+             background: #dfdfdf none repeat scroll 0 0;
+             content: "";
+             height: 25px;
+             left: -13px;
+             margin-top: -12.5px;
+             position: absolute;
+             top: 50%;
+             transform: rotate(45deg);
+             width: 25px;
+         }
+
+         #pswd_info {
+             display: none;
+         }
+     </style>
+        <div class="col-md-4">
+            <div class="aro-pswd_info">
+                <div id="pswd_info">
+                    <h4>Password must be required</h4>
+                    <ul>
+                        <li id="letter" class="invalid">At least <strong>one letter</strong></li>
+                        <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+                        <li id="number" class="invalid">At least <strong>one number</strong></li>
+                        <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+                        <li id="space" class="invalid">be<strong> use [~,!,#,$,%,^,&,*,-,=,.,;,']</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        @*<div class="alert alert-link alert-dismissible" role="alert">
+            <button class="close" aria-label="Close" type="button" data-dismiss="alert"><span aria-hidden="true">×</span></button>
+            @ViewData["error"]
+        </div>*@
+
+    </div>
+    @*<p style="color:orangered">
+        @ViewBag.token
+    </p>*@
+
+    </div>  
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+
+        <script>
+            $(document).ready(function(){
+	
+	$('input[type=password]').keyup(function() {
+		var pswd = $(this).val();
+		
+		//validate the length
+		if ( pswd.length < 8 ) {
+			$('#length').removeClass('valid').addClass('invalid');
+		} else {
+			$('#length').removeClass('invalid').addClass('valid');
+		}
+		
+		//validate letter
+		if ( pswd.match(/[A-z]/) ) {
+			$('#letter').removeClass('invalid').addClass('valid');
+		} else {
+			$('#letter').removeClass('valid').addClass('invalid');
+		}
+
+		//validate capital letter
+		if ( pswd.match(/[A-Z]/) ) {
+			$('#capital').removeClass('invalid').addClass('valid');
+		} else {
+			$('#capital').removeClass('valid').addClass('invalid');
+		}
+
+		//validate number
+		if ( pswd.match(/\d/) ) {
+			$('#number').removeClass('invalid').addClass('valid');
+		} else {
+			$('#number').removeClass('valid').addClass('invalid');
+		}
+		
+		//validate space
+		if ( pswd.match(/[^a-zA-Z0-9\-\/]/) ) {
+			$('#space').removeClass('invalid').addClass('valid');
+		} else {
+			$('#space').removeClass('valid').addClass('invalid');
+		}
+		
+	}).focus(function() {
+		$('#pswd_info').show();
+	}).blur(function() {
+		$('#pswd_info').hide();
+	});
+	
+});
+        </script>
+
+    }

@@ -1,0 +1,124 @@
+﻿@model Gyanisa.Models.ViewModel.TeacherInquiryViewModel
+@{
+    Layout = null;
+}
+<style>
+    .lbl1 {
+        font: 12px 'Muli', sans-serif;
+        color: #808080;
+        width: 100%;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+    }
+    .input-field {
+        font: 12px 'Muli', sans-serif;
+        color: #000000;
+        width: 100%;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+        margin:10px;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #d7cfcf;
+        opacity: 3; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #d7cfcf;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #d7cfcf;
+    }
+</style>
+
+<div id="teacher_inq" class="modal fade" role="dialog">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <label> Send a Message to Tutor</label>
+                <button type="button"   style="background-color:#ffffff;color:#000000"  data-dismiss="modal">&Chi;</button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="teacherinquiry" asp-controller="tutor" method="post">
+                    <div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserID" />
+                      
+                        <div class="row">
+                            <div class="input-field">
+                                <label class="lbl1">What do you want to learn?</label>
+                                <input asp-for="Subject" placeholder="Enter your Subject or Course" type="text" required>
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field">
+                                <label class="lbl1">What is your location?</label>
+                                <input asp-for="Zip" type="text" placeholder="Enter your street or Location" required>
+                                @* <span class="helper-text" data-error="wrong" data-success="right">Name</span>*@
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field">
+                                <label class="lbl1">Your Name</label>
+                                <input asp-for="FullName" type="text" placeholder="Enter your Full Name" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field">
+                                <label class="lbl1">Your Email</label>
+                                <input asp-for="Email" type="email" placeholder="Enter your verified Email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">
+                                <label class="lbl1">Your Phone</label>
+                                <input asp-for="Mobile" type="tel" placeholder="Enter your Phone" required>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="row">
+                            <div class="input-field">
+                                <label class="lbl1">Type Your Message (Optional)</label>
+                                <textarea asp-for="Message" name="message" id="message"
+                                          rows="3" class="form-control" placeholder="Enter your message...."></textarea>
+                                <span asp-validation-for="Message" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="float:right;color:#ffffff;">
+                                <button type="submit">Submit</button>
+                            </div>
+                        </div>
+                        <p style="font-size:smaller;">
+                            <label>
+                                By Submit, you agree to our <span class="text-primary">
+                                    <a asp-action="privacy" asp-controller="home"> Terms of Use</a>
+                                </span> & <span class="text-primary">Privacy Policy</span>
+                            </label>
+                        </p>
+
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+
+

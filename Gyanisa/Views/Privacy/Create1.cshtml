@@ -1,0 +1,138 @@
+﻿@model Gyanisa.Models.Admin.TermAndService
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
+
+
+ 
+    <h4>Term And Service</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-9">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Aboutus" class="control-label"></label>
+                    <textarea id="Abouteditor" asp-for="Aboutus"></textarea>
+                    <span asp-validation-for="Aboutus" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FAQ" class="control-label"></label>
+                    <textarea id="FAQeditor" asp-for="FAQ"></textarea>
+                    <span asp-validation-for="FAQ" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Guidelines" class="control-label"></label>
+                    <textarea id="Guidelineseditor" asp-for="Guidelines"></textarea>
+                    <span asp-validation-for="Guidelines" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="PaymentRates" class="control-label"></label>
+                    <textarea id="PaymentRateseditor" asp-for="PaymentRates"></textarea>
+                    <span asp-validation-for="PaymentRates" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Licenses" class="control-label"></label>
+                    <textarea id="Licenseseditor" asp-for="Licenses"></textarea>
+                    <span asp-validation-for="Licenses" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TermsCondition" class="control-label"></label>
+                    <textarea id="TermsConditioneditor" asp-for="TermsCondition"></textarea>
+                    <span asp-validation-for="TermsCondition" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrivacyPolicy" class="control-label"></label>
+                    <textarea id="PrivacyPolicyeditor" asp-for="PrivacyPolicy"></textarea>
+                    <span asp-validation-for="PrivacyPolicy" class="text-danger"></span>
+                </div>
+               
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+ 
+ 
+    @section scripts{
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                $('#Abouteditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+            $(document).ready(function () {
+                $('#FAQeditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+            $(document).ready(function () {
+                $('#Guidelineseditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+            $(document).ready(function () {
+                $('#PaymentRateseditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+            $(document).ready(function () {
+                $('#Licenseseditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+            $(document).ready(function () {
+                $('#TermsConditioneditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+            $(document).ready(function () {
+                $('#PrivacyPolicyeditor').summernote({
+                    height: 300,
+                    tabsize: 2,
+                    followingToolbar: true,
+                });
+            });
+
+        </script>
+
+    }

@@ -1,0 +1,141 @@
+﻿@model Gyanisa.Models.Subject
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+}
+
+<div class="panel-wrapper">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="breadcrumb-wrapper">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Subject</li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+
+    <div class="panel-header">
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Subjects</h3>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <!-- tab start -->
+            <div class="tab_container">
+                <input class="tab-inp" id="tab1" type="radio" name="tabs">
+                <label class="tab-label" for="tab1"><span><a asp-action="Index" asp-controller="Subjects"> Subject List</a></span></label>
+                <input class="tab-inp" id="tab2" type="radio" name="tabs" checked>
+                <label class="tab-label" for="tab2"><span><a asp-action="Create" asp-controller="Subjects"> Add Subject</a></span></label>
+
+                <!-- tab content -->
+
+                <section id="content2" class="tab-content">
+
+                    <div class="row">
+                        <form asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="col-md-8">
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <select id="basic" class="selectpicker show-tick form-control" data-live-search="true"
+                                                    asp-for="SubjectCategoryId" asp-items='@(new SelectList(ViewBag.SubjectCategorylist,"Id","SubjectCategoryName"))'>
+                                                <option>Select Category</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' class="form-control" placeholder="create Date" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <input asp-for="SubjectCode" class="" aria-describedby="basic-addon1" required />
+                                            <label>Subject ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <input asp-for="SubjectName" class="" aria-describedby="basic-addon1" required />
+                                            <label>Subject Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <input asp-for="MetaTitle" class="" aria-describedby="basic-addon1" />
+                                            <label>Meta Title</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <input asp-for="MetaKeywords" class="" aria-describedby="basic-addon1" />
+                                            <label>Meta Keywords</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <textarea asp-for="MetaDescription"></textarea>
+                                            <label>Meta Description</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-tools-cover">
+                                        <div class="input-group">
+                                            <textarea asp-for="Metaabstract"></textarea>
+                                            <label>Meta Abstract</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="button-cover">
+                                    <input type="submit" class="btn btn-save" value="Submit Process">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <!-- tab close -->
+        </div>
+        <!-- content close -->
+    </div>
+</div>

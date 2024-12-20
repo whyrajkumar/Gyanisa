@@ -1,0 +1,73 @@
+﻿@model Gyanisa.Models.PostRequire
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PostRequire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Zip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Archive)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Archive)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Complete)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Complete)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

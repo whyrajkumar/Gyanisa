@@ -1,0 +1,626 @@
+﻿@model Gyanisa.Models.ManageViewModels.UsersInformationViewModel
+
+@{
+    ViewData["Title"] = "User Setting";
+    ViewData.AddActivePage(ManageNavPages.UpdateProfile);
+    var image_path = "";
+}
+<style>
+    .lbl1 {
+        font: 12px 'Muli', sans-serif;
+        color: #808080;
+        width: 100%;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+    }
+
+    .input-field {
+        font: 12px 'Muli', sans-serif;
+        color: #000000;
+        width: 100%;
+        box-sizing: border-box;
+        letter-spacing: 1px;
+        margin: 10px;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #d7cfcf;
+        opacity: 3; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #d7cfcf;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #d7cfcf;
+    }
+</style>
+
+<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<div>
+    <div>
+        <form asp-action="UpdateProfile" asp-controller="Manage" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="row">
+                <div class="input-field">
+                    <label asp-for="Heading" class="lbl1"></label>
+                    <input asp-for="Heading" placeholder="Enter your Tag Line(ex. Student of biology tuition for class 9th-10th)"   type="text" required>
+                    <span asp-validation-for="Heading" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Trigger the modal with a button -->
+            <div class="form-group">
+                <br />
+
+                <style>
+                    .modeFadeMargin {
+                        margin: 5px;
+                        color: white;
+                    }
+
+                    .popupdialog1 {
+                        margin-top: 7.75em;
+                    }
+                </style>
+
+                <button type="button" class="btn btn-info btn-sm modeFadeMargin" data-toggle="modal" data-target="#mySubjectCategory">Choose Category</button>
+                <button type="button" class="btn btn-info btn-sm modeFadeMargin" data-toggle="modal" data-target="#myCourse">Choose Class</button>
+                <button type="button" class="btn btn-info btn-sm modeFadeMargin" data-toggle="modal" data-target="#mySubject">Choose Subject</button>
+                <button type="button" class="btn btn-info btn-sm modeFadeMargin" data-toggle="modal" data-target="#myLang">Taught Language</button>
+                <button type="button" class="btn btn-info btn-sm modeFadeMargin" data-toggle="modal" data-target="#mySEO">More Student </button>
+
+                <!-- Modal -->
+
+                <div class="modal fade" id="mySubjectCategory" role="dialog">
+                    <div class="modal-dialog popupdialog1">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title left-side">Subject Category</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <table>
+                                        @for (int i = 0; i < Model.AvailableSubjectCategories.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.HiddenFor(x => Model.AvailableSubjectCategories[i].Id)
+                                                    @Html.CheckBoxFor(it => Model.AvailableSubjectCategories[i].IsChecked, new { Style = "vertical-align:3px" })
+                                                </td>
+                                                <td>
+                                                    &nbsp; &nbsp;  &nbsp; &nbsp;@Html.DisplayFor(it => Model.AvailableSubjectCategories[i].Title)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myCourse" role="dialog">
+                    <div class="modal-dialog popupdialog1">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title left-side">Course</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <table>
+                                        @for (int i = 0; i < Model.AvailableCourses.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+
+                                                    @Html.HiddenFor(x => Model.AvailableCourses[i].Id)
+                                                    @Html.CheckBoxFor(it => Model.AvailableCourses[i].IsChecked, new { Style = "vertical-align:3px" })
+
+                                                </td>
+                                                <td>
+                                                    &nbsp; &nbsp;  &nbsp; &nbsp;@Html.DisplayFor(it => Model.AvailableCourses[i].Title)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="mySubject" role="dialog">
+                    <div class="modal-dialog popupdialog1">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title left-side">Subject</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+
+                                    <table>
+                                        @for (int i = 0; i < Model.AvailableSubjects.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.HiddenFor(x => Model.AvailableSubjects[i].Id)
+                                                    @Html.CheckBoxFor(it => Model.AvailableSubjects[i].IsChecked, new { Style = "vertical-align:3px" })
+
+                                                </td>
+                                                <td>
+                                                    &nbsp; &nbsp;  &nbsp; &nbsp; @Html.DisplayFor(it => Model.AvailableSubjects[i].Title)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                    @*<div id="jstree">
+                                </div>*@
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+
+
+
+
+                        @*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                    {
+                        <input type="hidden" name="selectedItems" id="selectedItems" />
+                        <input type="submit" value="Submit" />
+                    }*@
+
+
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="myLang" role="dialog">
+                    <div class="modal-dialog popupdialog1">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+
+
+                            <div class="modal-header">
+                                <h4 class="modal-title left-side">Taught Language</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <table>
+                                        @for (int i = 0; i < Model.AvailableLanguages.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>
+
+                                                    @Html.HiddenFor(x => Model.AvailableLanguages[i].Id)
+                                                    @Html.CheckBoxFor(it => Model.AvailableLanguages[i].IsChecked, new { Style = "vertical-align:3px" })
+
+                                                </td>
+                                                <td>
+                                                    &nbsp; &nbsp;  &nbsp; &nbsp;@Html.DisplayFor(it => Model.AvailableLanguages[i].Title)
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="mySEO" role="dialog">
+                    <div class="modal-dialog popupdialog1">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <h4 class="modal-title left-side">Seo Ranking </h4>
+                                <h5 class="modal-title" style="color:forestgreen;">This is For Improve you for Hire </h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label asp-for="Heading" class="lbl1"></label>
+                                    <h5 class="text-upper">@Html.DisplayFor(model => model.Heading) </h5>
+                                </div>
+                                <div class="form-group">
+                                    <label class="lbl1">Google SEO Search Keyword</label>
+                                    <textarea asp-for="MetaKeywords" class="form-control" placeholder="Math,Teacher School,Tutor,Math Teacher" rows="5"></textarea>
+                                    <span asp-validation-for="MetaKeywords" class="text-danger"></span>
+                                </div>
+
+
+                                <label class="lbl1">Google Seo Description</label>
+                                <textarea asp-for="MetaDescription" class="form-control" placeholder="Type Description in 100 Words" rows="5" id="Resume"></textarea>
+                                <span asp-validation-for="MetaDescription" class="text-danger"></span>
+
+
+
+                                <label class="lbl1">Your Study Methodlogy</label>
+                                <textarea asp-for="Metaabstract" class="form-control" placeholder="Type Description in 100 Words" rows="5" id="Resume"></textarea>
+                                <span asp-validation-for="Metaabstract" class="text-danger"></span>
+
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="input-group">
+                    <div class="col-6">
+                        <label class="lbl1"> First Name </label>
+                        <input asp-for="FirstName" placeholder="Enter your First Name" type="text" required>
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="LastName" class="lbl1"></label>
+                        <input asp-for="LastName" placeholder="Enter your Last Name" type="text" required>
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <div class="col-6">
+                        <label asp-for="Gender" class="lbl1"></label>
+                        <select asp-for="Gender" class="form-control" type="text">
+                            <option value="">-- Select Gender --</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="DOB" class="lbl1"></label>
+                        <input asp-for="DOB" placeholder="Enter your Last Name" type="date" required>
+                        <span asp-validation-for="DOB" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            @*<div class="input-field">
+            <label asp-for="DOB" class="lbl1"></label>
+            <div class='input-group date' id='datetimepicker1'>
+                <input asp-for="DOB" class="form-control" type="date" id="datetimepicker" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>*@
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+
+            @*Address*@
+
+
+            <div class="row">
+                <div class="input-field">
+                    <label class="lbl1"> Street(Not Require House No.)</label>
+                    <input asp-for="Add1" placeholder="Enter street or Landmark" type="text" required>
+                    <span asp-validation-for="Add1" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <div id='printoutPanel'></div>
+            <div id='searchBoxContainer'>
+                @* <input id='searchBox' type='text'>*@
+                <div id='myMap' style='width:0vw; height: 0vw; font-family: undefined;'></div>
+                <div class="row">
+                    <div class="input-field">
+                        <label class="lbl1"> Find your Address </label>
+                        <input id="searchBox" asp-for="Add2" placeholder="Search Address" type="text" required>
+                        <span asp-validation-for="Add2" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+          
+
+            <div class="row">
+                <div class="input-field">
+                    <label asp-for="ZipCode" class="lbl1"></label>
+                    <input asp-for="ZipCode" placeholder="Type Pin Code or Zip" type="text" required>
+                    <span asp-validation-for="ZipCode" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            @*TutorDetails fee*@
+
+
+            <div class="row">
+                <div class="input-group">
+                    <label class="lbl1">Your Hourly Fee Want to Charge </label>
+                    <div class="col-4">
+                        <input  asp-for="HourlyFee" class="text"
+                               placeholder="Your Fees/Hour" />
+                        <span asp-validation-for="HourlyFee" class="text-danger"></span>
+                    </div>
+                    <div class="col-1">
+                        <span class="input-group-addon">
+                            <b> <i class="" style="color:#20815e; font-size:">₹</i></b>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <style>
+                fieldset {
+                    padding: 10px;
+                    border: 1px solid #666;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px #666;
+                }
+
+                legend {
+                    float: left;
+                    margin-top: 10px;
+                }
+
+                    legend + * {
+                        clear: both;
+                    }
+
+            </style>
+
+          
+            <fieldset>
+                <legend><h5>Where you want to Tutoring</h5></legend>
+                <div class="row">
+                    <div class="col-md-1"><input asp-for="HisHome" /></div>
+                    <div class="col-md-3">@Html.DisplayNameFor(model => model.HisHome)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"><input asp-for="YourHome" /></div>
+                    <div class="col-md-3">Institue or Your Home</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"><input asp-for="WebCam" /></div>
+                    <div class="col-md-5">@Html.DisplayNameFor(model => model.WebCam)</div>
+                </div>
+
+            </fieldset>
+
+            <br />
+            <fieldset>
+                <legend><h5>Your Experience & Certificate:</h5></legend>
+
+                <div class="row">
+                    <div class="input-field">
+                        <label class="lbl1">Graduation</label>
+                        <input asp-for="GEducation" placeholder="Bachelor in Science (2017)" type="text" required>
+                        <span asp-validation-for="GEducation" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <label class="lbl1">Post Graduation</label>
+                        <input asp-for="PEducation" placeholder="Master in Science (2017)" type="text" required>
+                        <span asp-validation-for="PEducation" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <label class="lbl1">Teaching Experience</label>
+                        <input asp-for="Experience" placeholder="5 Year Experiece Home & Remote tuition" type="text" required>
+                        <span asp-validation-for="Experience" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend><h5>Setting Show</h5></legend>
+                @*<div class="row">
+                <div class="col-md-1"><input asp-for="IsAddress" /></div>
+                <div class="col-md-3">@Html.DisplayNameFor(model => model.IsAddress)</div>
+            </div>*@
+
+                <div class="row">
+                    <div class="col-md-1"><input asp-for="IsMobile" /></div>
+                    <div class="col-md-2">Mobile Show</div>
+                    <div class="col-md-1"><input asp-for="IsEmail" /></div>
+                    <div class="col-md-2">Email Show</div>
+                    @*<div class="col-md-1"><input asp-for="IsEducation" /></div>
+                    <div class="col-md-3">Show</div>*@
+                </div>
+                <div class="row">
+                    <div class="col-md-1"><input asp-for="IsGirl" /></div>
+                    <div class="col-md-2">@Html.DisplayNameFor(model => model.IsGirl)</div>
+                    <div class="col-md-1"><input asp-for="IsBoy" /></div>
+                    <div class="col-md-2">@Html.DisplayNameFor(model => model.IsBoy)</div>
+                </div>
+            </fieldset>
+            <br />
+
+            <div>
+                <div>Resume Description(Tip: Copy and Paste from to MicroSoft word)</div>
+                <textarea id="editor" asp-for="Description" placeholder="TIP: Copy and Paste from to MicroSoft word for best result" type="text"></textarea>
+            </div>
+
+            @*Picture*@
+
+            @if (!string.IsNullOrEmpty(ViewBag.UserPhoto))
+            {
+                image_path = $"/UserImage/{ViewBag.UserPhoto}";
+            }
+            else
+            {
+                image_path = $"/UserImage/empty_user.png";
+            }
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img id="profilePicture" class="profile-user-img img-responsive img-circle" style="width:100px; height:100px;" src="@image_path" />
+                        </div>
+
+                        <div class="col-lg-12">
+                            <br />
+                            <div class="file btn btn-lg btn-primary">
+                                Profile Image
+                                <input asp-for="UserPhoto" class="form-control" />
+                                @*<input type="file" asp-for="UserPhoto" id="files" name="file" style="position: absolute;  font-size: 40px;  opacity: 0;  right: 0;  top: 0;" />*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="input-field">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <input type="submit" value="Save" class="btn btn-success" style="width:100%;" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back</a>
+</div>
+
+
+@section scripts{
+    <script src="~/AdminLTE/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src='https://www.bing.com/api/maps/mapcontrol?key=Aj5S6wFSj5mtHWcQPZK-ViYYOEeLmEbmJEacfsXu0IwKdNSplDOxah4GCVS5ApIU&amp;callback=loadMapScenario' defer='' type='text/javascript' async=''></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+
+
+    <script>
+        $('#editor').trumbowyg();
+    </script>
+
+
+    <script type='text/javascript'>
+        function loadMapScenario() {
+            var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                /* No need to set credentials if already passed in URL */
+                center: new Microsoft.Maps.Location(47.606209, -122.332071),
+                zoom: 12
+            });
+            Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', function () {
+                var options = {
+                    maxResults: 10//,
+                    //map: map
+                };
+                var manager = new Microsoft.Maps.AutosuggestManager(options);
+                manager.attachAutosuggest('#searchBox', '#searchBoxContainer');
+            });
+            function selectedSuggestion(suggestionResult) {
+                map.entities.clear();
+                map.setView({ bounds: suggestionResult.bestView });
+                var pushpin = new Microsoft.Maps.Pushpin(suggestionResult.location);
+                map.entities.push(pushpin);
+                document.getElementById('printoutPanel').innerHTML =
+                    'Suggestion: ' + suggestionResult.formattedSuggestion +
+                    '<br> Lat: ' + suggestionResult.location.latitude +
+                    '<br> Lon: ' + suggestionResult.location.longitude;
+            }
+
+        }
+    </script>
+
+    <script>
+
+                $(function () {
+                    $("#region").change(function () {
+                        var url = '@Url.Content("~/")' + "Manage/GetDistrictID";
+                        var ddlSource = "#region";
+                        $.getJSON(url, { id: $(ddlSource).val() }, function (data) {
+                            var items = '';
+                            $("#District").empty();
+                            $.each(data, function (i, row) {
+                                items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                            });
+                            $("#District").html(items);
+                        })
+                    })
+
+                    $("#District").change(function () {
+                        var url = '@Url.Content("~/")' + "Manage/GetCityID";
+                        var ddlSource = "#District";
+                        $.getJSON(url, { id: $(ddlSource).val() }, function (data) {
+                            var items = '';
+                            $("#City").empty();
+                            $.each(data, function (i, row) {
+                                items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                            });
+                            $("#City").html(items);
+                        })
+                    })
+
+
+                })
+    </script>
+
+}
+
+
+
+
+
+
+

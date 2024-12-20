@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Gyanisa.Models.Blog.Post>
+
+@{
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .scrollback {
+      
+    }
+</style>
+
+<div class="scrollback">
+    <h2>Index</h2>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Body)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    
+                    @Html.DisplayNameFor(model => model.Created)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Slug)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaKeywords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Metaabstract)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Body)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Created)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Slug)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaKeywords)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetaDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Metaabstract)
+                    </td>
+                    <td>
+                        <a href="@(Url.Action("Edit", "Posts", new { id = item.Id}))">Edit</a> |
+                        <a href="@(Url.Action("Details", "Posts", new { id = item.Id,Title=item.Slug }))">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

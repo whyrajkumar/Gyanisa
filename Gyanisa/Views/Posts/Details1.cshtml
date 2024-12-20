@@ -1,0 +1,66 @@
+﻿@model Gyanisa.Models.Blog.Post
+
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Abstract = Model.Metaabstract;
+}
+ 
+ 
+<div class="container">
+    <h4>  @Html.DisplayFor(model => model.Title)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+        <dd>
+            @Html.Raw(Model.Body)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaKeywords)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaKeywords)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Metaabstract)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Metaabstract)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

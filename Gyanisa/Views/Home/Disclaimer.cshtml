@@ -1,0 +1,45 @@
+﻿@model Gyanisa.Models.Admin.TermAndService
+@{
+    ViewBag.Title = "Disclaimer";
+    //ViewBag.Keywords = "Description keywords";
+    //ViewBag.Description = "Tuition Engineer is a private tutors directory in India with more than 10,001 private teachers registered to teach face-to-face and or online in over top subjects. You can also register with us as a tutor.";
+    //ViewBag.Abstract = "Learn from top Tutors and Coaching Centers for Tuition, Exam Prep, Hobby Classes, IT Courses, and hundreds of other learning categories, on India's favourite Learning Marketplace.";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <div class="row">
+            <div class="col-md-8">
+                <p>
+                    @Html.Raw(Model.TermsCondition)
+                </p>
+            </div>
+            <div class="col-md-3 ml-auto">
+                <div class="mb-5">
+                    <h3 class="h5 text-black mb-3">Search</h3>
+                    <form action="#" method="post">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+                        </div>
+                    </form>
+                </div>
+                <div class="mb-5">
+                    <h3 class="h5 text-black mb-3">Popular Posts</h3>
+                   
+                </div>
+                <div class="mb-5">
+                    <h3 class="h5 text-black mb-3">Recent Comments</h3>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+

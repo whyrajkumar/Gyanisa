@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Gyanisa.Models.UserInformation>
+@{
+
+}
+@*<link href="~/css/addtohomescreen.css" rel="stylesheet" />*@
+
+<style>
+
+    .checked {
+        color: orange;
+    }
+</style>
+<div class="row">
+    <div class="col-12">
+        <h2 class="h5 mb-4 text-black">Trading Now</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12  block-13">
+        <div class="owl-carousel nonloop-block-13">
+            @foreach (var user in Model)
+            {
+
+                var image_path = "";
+                @if (!string.IsNullOrEmpty(user.UserPhoto))
+                {
+                    image_path = $"/UserImage/{user.UserPhoto}";
+                }
+                else
+                {
+                    image_path = $"/UserImage/empty_user";
+                }
+                <div class="d-block d-md-flex listing vertical">
+                    <a href="@(Url.Action("Details", "Tutor", new { id = user.UserID,Title=user.Slug }))" class="img d-block" style="background-image: url('@image_path')"></a>
+                    <div class="lh-content">
+                        <span class="category">English</span>
+                        <a id="bookmark-this" href="#" class="bookmark"><span class="icon-heart"></span></a>
+                        <h3><a href="@(Url.Action("Details", "Tutor", new { id = user.UserID,Title=user.Slug }))">  @user.FirstName  @user.LastName</a></h3>
+                        <address>Add:   @user.Add1 </address>
+
+
+                        @Html.Partial("VoteShow", user.Votes == null ? "0,0,0,0,1" : user.Votes.ToString())
+
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts
+    {
+    @*<script src="~/js/addtohomescreen.js"></script>*@
+    <script>
+        //initial setup
+        document.addEventListener('DOMContentLoaded', function () {
+            let stars = document.querySelectorAll('.star');
+            stars.forEach(function (star) {
+                star.addEventListener('click', setRating);
+            });
+
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            let target = stars[rating - 1];
+            target.dispatchEvent(new MouseEvent('click'));
+        });
+        function setRating(ev) {
+            let span = ev.currentTarget;
+            let stars = document.querySelectorAll('.star');
+            let match = false;
+            let num = 0;
+            stars.forEach(function (star, index) {
+                if (match) {
+                    star.classList.remove('rated');
+                } else {
+                    star.classList.add('rated');
+                }
+                //are we currently looking at the span that was clicked
+                if (star === span) {
+                    match = true;
+                    num = index + 1;
+                }
+            });
+            document.querySelector('.stars').setAttribute('data-rating', num);
+        }
+
+    </script>
+
+}
+
+

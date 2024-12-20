@@ -1,0 +1,217 @@
+﻿@model Gyanisa.Models.ViewModel.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+    //ViewBag.Keywords = "Description keywords";
+    //ViewBag.Description = "Tuitioner is a private tutors directory in India with more than 10,001 private teachers registered to teach face-to-face and or online in over top subjects. You can also register with us as a tutor.";
+    //ViewBag.Abstract = "Learn from top Tutors and Coaching Centers for Tuition, Exam Prep, Hobby Classes, IT Courses, and hundreds of other learning categories, on India's favourite Learning Marketplace.";
+
+}
+
+<style>
+    .capbox {
+        background-color: #92D433;
+        border: #B3E272 0px solid;
+        border-width: 0px 12px 0px 0px;
+        display: inline-block;
+        *display: inline;
+        zoom: 1; /* FOR IE7-8 */
+        padding: 8px 40px 8px 8px;
+    }
+
+    .capbox-inner {
+        font: bold 11px arial, sans-serif;
+        color: #000000;
+        background-color: #DBF3BA;
+        margin: 5px auto 0px auto;
+        padding: 3px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    #CaptchaDiv {
+        font: bold 17px verdana, arial, sans-serif;
+        font-style: italic;
+        color: #000000;
+        background-color: #FFFFFF;
+        padding: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+    #CaptchaInput {
+        margin: 1px 0px 1px 0px;
+        width: 135px;
+    }
+</style>
+
+
+<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(../images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+
+
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-8 text-center">
+                        <h1>Contact Us</h1>
+                        <p class="mb-0">Get In Touch</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section bg-light">
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-md-7 mb-5" data-aos="fade">
+
+                <form method="post" asp-controller="home" asp-action="contact" onsubmit="return checkform(this);">
+                    @Html.AntiForgeryToken()
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="col-md-12" asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        @*<div class="col-md-6 mb-3 mb-md-0">
+                        <label class="text-black" for="fname">First Name</label>
+                        <input type="text" id="fname" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="text-black" for="lname">Last Name</label>
+                        <input type="text" id="lname" class="form-control">
+                    </div>*@
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="col-md-12" asp-for="Email">Email</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="col-md-12" asp-for="Subject">Subject</label>
+                            <input asp-for="Subject" class="form-control" />
+                            <span asp-validation-for="Subject" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="col-md-12" asp-for="Message">Message</label>
+                            <textarea asp-for="Message" name="message" id="message" cols="30"
+                                      rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="capbox">
+                        <div id="CaptchaDiv"></div>
+                        <div class="capbox-inner">
+                            Type the above number:<br>
+                            <input type="hidden" id="txtCaptcha">
+                            <input type="text" name="CaptchaInput" id="CaptchaInput" size="20"><br>
+                        </div>
+                    </div>
+
+
+
+                    <br />
+                    <div>
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="cta">
+                                <span class="bg-primary text-white rounded">
+                                    @ViewBag.Message
+                                </span>
+                            </div>
+                        }
+                    </div>
+
+                    <br />
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="submit" class="btn btn-primary py-2 px-4 text-white" value="Send Message" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            @*<div class="col-md-5" data-aos="fade" data-aos-delay="100">
+
+            <div class="p-4 mb-3 bg-white">
+                <p class="mb-0 font-weight-bold">Address</p>
+                <p class="mb-4">Jaipur , Rajasthan ,INDIA</p>
+                <p class="mb-0 font-weight-bold">Phone</p>
+                <p class="mb-4"><a href="#">+(xxx) xxx-xxxx</a></p>
+                <p class="mb-0 font-weight-bold">Email Address</p>
+                <p class="mb-0"><a href="#">info@tuitioner.in</a></p>
+            </div>
+
+            <div class="p-4 mb-3 bg-white">
+                <h3 class="h5 text-black mb-3"><a asp-action="About"> More Info</a></h3>
+                <p>Tutors, teachers, coaches, professionals and mentors; Tuition Engineer is a community of fantastic tutors ready to share their knowledge & their passion.</p>
+                <p><a asp-action="About" class="btn btn-primary px-4 py-2 text-white">Learn More</a></p>
+            </div>
+        </div>*@
+        </div>
+    </div>
+</div>
+@section Scripts
+    {
+    <script type="text/javascript">
+
+        // Captcha Script
+
+        function checkform(theform) {
+            var why = "";
+
+            if (theform.CaptchaInput.value == "") {
+                why += "- Please Enter CAPTCHA Code.\n";
+            }
+            if (theform.CaptchaInput.value != "") {
+                if (ValidCaptcha(theform.CaptchaInput.value) == false) {
+                    why += "- The CAPTCHA Code Does Not Match.\n";
+                }
+            }
+            if (why != "") {
+                alert(why);
+                return false;
+            }
+        }
+
+        var a = Math.ceil(Math.random() * 9) + '';
+        var b = Math.ceil(Math.random() * 9) + '';
+        var c = Math.ceil(Math.random() * 9) + '';
+        var d = Math.ceil(Math.random() * 9) + '';
+        var e = Math.ceil(Math.random() * 9) + '';
+
+        var code = a + b + c + d + e;
+        document.getElementById("txtCaptcha").value = code;
+        document.getElementById("CaptchaDiv").innerHTML = code;
+
+        // Validate input against the generated number
+        function ValidCaptcha() {
+            var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+            var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+            if (str1 == str2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // Remove the spaces from the entered and generated code
+        function removeSpaces(string) {
+            return string.split(' ').join('');
+        }
+    </script>
+}

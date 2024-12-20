@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Gyanisa.Models.Admin.UserListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+}
+    <div class="panel-wrapper">
+        <div class="panel-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Teacher/Institue</li>
+                        </ol>
+                    </div>
+                </div>
+               
+                    <div class="col-md-6">
+                        <div class="action-btn-cover btn-group pull-right">
+                            <a href=""><i class="fa fa-plus"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-print"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-download"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-share"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-envelope"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-trash"></i></a>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+            @*<div class="panel-header">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Teacher/Institue</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="action-btn-cover btn-group pull-right">
+                            <a href=""><i class="fa fa-plus"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-print"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-download"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-share"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-envelope"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="panel-body">
+                <div class="row">
+                    <!-- tab start -->
+                    <div class="tab_container">
+                        <input class="tab-inp" id="tab1" type="radio" name="tabs" checked>
+                        <label class="tab-label" for="tab1"><span>Course List</span></label>
+                        <input class="tab-inp" id="tab2" type="radio" name="tabs">
+                        <label class="tab-label" for="tab2"><span><a asp-action=""> Add Tutor</a></span></label>
+
+                        <!-- tab content -->
+                        <section id="content1" class="tab-content">
+
+                            <!-- table -->
+                            <table class="table table-striped" id="mydata">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
+                                        <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                                        <th scope="col">@Html.DisplayNameFor(model => model.Email)</th>
+                                        <th scope="col">@Html.DisplayNameFor(model => model.RoleName)</th>
+                                        <th scope="col">@Html.DisplayNameFor(model => model.Rating)</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row"> @Html.DisplayFor(modelItem => item.Id)</th>
+                                            <td>  @Html.DisplayFor(modelItem => item.Name)</td>
+                                            <td>  @Html.DisplayFor(modelItem => item.Email)</td>
+                                            <td>  @Html.DisplayFor(modelItem => item.RoleName)</td>
+                                            <td>  @Html.DisplayFor(modelItem => item.Rating)</td>
+
+                                            <td>
+                                                @*              <a href="#" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i></a>*@
+
+                                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+                                                <a><i class="fa fa-edit"></i></a>
+                                                @*<a asp-action="Delete" asp-route-id="@item.Id" data-toggle="modal" data-target="#confirm"><i class="fa fa-trash"></i></a>*@
+                                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <!-- modal Confirm -->
+                            <div class="modal fade" id="confirm">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Confirm</h4>
+                                            <a href="#" class="btn btn-invert" data-dismiss="modal"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are You Sure You Delete This ???</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="button-cover">
+                                                <a class="btn btn-primary"><i class="fa fa-check"></i>YES</a>
+                                                <a href="#" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>NO</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <!-- tab close -->
+                </div>
+                <!-- content close -->
+            </div>
+        </div>

@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewData["Title"] = "DashBoard";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+   // Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="panel-wrapper">
+    <div class="panel-header">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Admin Dashboard - Quicklinks</h3>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Create" asp-controller="Subjects"><i class="fa fa-user-plus"></i></a>
+                            <a asp-action="Index" asp-controller="Subjects">Add Subject</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Index" asp-controller="User"><i class="fa fa-user-plus"></i></a>
+                            <a asp-action="Index" asp-controller="User">Add Teacher</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a ><i class="fa fa-user-plus"></i></a>
+                            <a >Add Stuff</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Index" asp-controller="User"><i class="fa fa-list"></i></a>
+                            <a asp-action="Index" asp-controller="User">Tutor List</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Index" asp-controller="Subjects"><i class="fa fa-list"></i></a>
+                            <a asp-action="Index" asp-controller="Subjects">Subject List</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Index" asp-controller="SubjectCategories"><i class="fa fa-list"></i></a>
+                            <a asp-action="Index" asp-controller="SubjectCategories">Subject Groups List</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Index" asp-controller="Courses"><i class="fa fa-list"></i></a>
+                            <a asp-action="Index" asp-controller="Courses">Courses List</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a asp-action="Index" asp-controller="Languages"><i class="fa fa-square"></i></a>
+                            <a asp-action="Index" asp-controller="Languages">Languages</a>
+                        </div>
+                    </div>
+
+                                @*<div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="attendence-student.html"><i class="fa fa-clock-o"></i></a>
+                            <a href="attendence-student.html">Student Attendance</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="attendence-employee.html"><i class="fa fa-clock-o"></i></a>
+                            <a href="attendence-employee.html">Employee Attendance</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="attendence-teacher.html"><i class="fa fa-clock-o"></i></a>
+                            <a href="attendence-teacher.html">Teacher Attendance</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="#"><i class="fa fa-calculator"></i></a>
+                            <a href="marks.html">Marks</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="routin2.html"><i class="fa fa-clock-o"></i></a>
+                            <a href="routin2.html">Student Routine</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="routin2.html"><i class="fa fa-clock-o"></i></a>
+                            <a href="routin2.html">Teacher Routine</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="routin2.html"><i class="fa fa-clock-o"></i></a>
+                            <a href="routin2.html">Stuff Routine</a>
+                        </div>
+                    </div>*@
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#">Mail/SMS</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="exam.html"><i class="fa fa-align-justify"></i></a>
+                            <a href="exam.html">Exams</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="#"><i class="fa fa-globe"></i></a>
+                            <a href="#">Online Test</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="#"><i class="fa fa-file"></i></a>
+                            <a href="#">Question Paper</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="notice.html"><i class="fa fa-file"></i></a>
+                            <a href="notice.html">Notice Board</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="fees.html"><i class="fa fa-credit-card"></i></a>
+                            <a href="fees.html">Collect Fees</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="library.html"><i class="fa fa-book"></i></a>
+                            <a href="library.html">Library</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="single-dashboard-menu-wrapper">
+                            <a href="account-setting.html"><i class="fa fa-cogs"></i></a>
+                            <a href="account-setting.html">Account Setting</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="dashbox dbox-green">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h3><i class="fa fa-users"></i></h3>
+                        </div>
+                        <div class="col-md-9">
+                            <h4>Total Students</h4>
+                            <p>500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbox dbox-red">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h3><i class="fa fa-user"></i></h3>
+                        </div>
+                        <div class="col-md-9">
+                            <h4>New Students</h4>
+                            <p>500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbox dbox-blue">
+                    <a asp-action="Index" asp-controller="PostRequires">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3><i class="fa fa-envelope"></i></h3>
+                            </div>
+                            <div class="col-md-9">
+                                <h4>Latest Inq Away</h4>
+                                <p>@ViewData["PostReq"]</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="dashbox dbox-blue">
+                    <a asp-action="Index" asp-controller="TeacherInquiries">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3><i class="fa fa-envelope"></i></h3>
+                            </div>
+                            <div class="col-md-9">
+                                <h4>Latest Teacher Request Inq Away</h4>
+                                <p>@ViewData["TeacherReq"]</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div><!-- row close -->
+        <!-- content close -->
+    </div>
+</div>

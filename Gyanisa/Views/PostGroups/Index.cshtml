@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Gyanisa.Models.Blog.PostGroup>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostGroupName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostGroupCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostGroupDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Slug)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaKeywords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MetaDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Metaabstract)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostGroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostGroupCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostGroupDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaKeywords)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Metaabstract)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PostGroupID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PostGroupID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PostGroupID">Delete</a>                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

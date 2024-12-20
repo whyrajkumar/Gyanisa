@@ -1,0 +1,353 @@
+﻿@model Gyanisa.Models.ManageViewModels.UsersInformationViewModel
+@{
+    ViewBag.Title = Model.FirstName + '-' + Model.MetaTitle;
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.Description = Model.MetaDescription;
+    //ViewBag.Abstract = Model.Metaabstract;
+
+    //ViewBag.Keywords = $"{ Model.MetaKeywords?.Replace(" "," ")} {Model.MetaKeywords} ";
+    var image_path = "";
+    var role = Model.Role;
+}
+
+@{
+    <link rel="stylesheet" type="text/css" href="~/css/tutorprofile.min.css" media="all">
+
+    <style>
+        .slg {
+            margin-bottom: 30px;
+            font-family: Calibri;
+            font-weight: 500;
+            font-size: medium;
+        }
+
+        .img1 {
+            width: 30px;
+            height: 30px;
+        }
+        header { 
+            background-color: green;
+        }
+    </style>
+}
+
+
+@if (!string.IsNullOrEmpty(@ViewBag.UserPhoto))
+{
+
+    image_path = $"/UserImage/{@ViewBag.UserPhoto}";
+
+}
+else
+{
+    image_path = $"/UserImage/empty_user.jpg";
+}
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br /><br />
+
+
+    <div class="container section">
+        @await Component.InvokeAsync("TeacherInquiry",new { Id = Model.Id  })
+        <form asp-action="Details" method="get" enctype="multipart/form-data">
+
+            <nav id="tutNavSm" class="tut-nav hidden-lg hidden-md">
+                <ul class="clear-list">
+                    <li class="slg"><a href="#skills" data-tooltip="Skills"><img class="img1" src="~/content/img/skills.svg" title="skill" /> </a></li>
+                    <li class="slg"><a href="#exp" data-tooltip="Experience"><span class=""><img class="img1" src="~/content/img/exp.svg" /> </span></a></li>
+                    <li class="slg"><a href="#ref" data-tooltip="References"><span class=""><img class="img1" src="~/content/img/certificate.svg" /> </span></a></li>
+                    @*<li class="slg"><a href="#blog" data-tooltip="Blog"><span class=""><img class="img1" src="~/content/img/skills.svg" /> Edu</span></a></li>*@
+                    <li class="slg"><a href="#contacts" data-tooltip="Contacts"><span class=""><img class="img1" src="~/content/img/contact.svg" /></span></a></li>
+
+                </ul>
+            </nav>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div id="tutSideBoxWrap">
+                        <div id="tutSideBox" class="clear-mrg">
+                            <div class="tut-side-box-1 clear-mrg">
+                                <div id="sticky-widget-wrapper">
+                                    <div id="sticky-widget-inner" style="top: 10px; left: 20px; width: 290px auto;  bottom: auto;" class="wdg-sticky">
+                                        <aside class="widget clearfix tutry_widget_card ">
+                                            <div class="tut-card  text-center">
+                                                <div class="tut-card-avatar">
+                                                    <span class="tut-avatar-state"> <span class="tut-avatar-state1"> <img class="avatar avatar-195" alt="" src="@image_path"> </span> <span class="tut-avatar-state2"> <img class="avatar avatar-195"> </span> </span>
+                                                </div>
+                                                <div class="tut-card-info clear-mrg">
+                                                    <h2 class="text-upper">@Html.DisplayFor(model => model.FirstName)</h2>
+
+                                                    @if (role == "Member")
+                                                    {
+                                                        <p class="text-muted">Institue</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p class="text-muted">@Html.DisplayFor(model => model.Role)</p>
+                                                    }
+
+                                                    @*<ul class="tut-social clear-list" style="color:#0d8359">
+                                                        <li><a href="tel:@Html.DisplayFor(model => model.MobilePhone)"><span class="fa fa-phone-square" style=" font-size:34px"></span></a></li>
+                                                        <li><a target="_blank" href="https://api.whatsapp.com/send?phone=@Html.DisplayFor(model => model.MobilePhone)"><span class="fa fa-whatsapp " style="font-size:34px"></span></a></li>
+                                                    </ul>
+                                                    <br />*@
+                                                </div>
+                                            </div>
+                                        </aside>
+                                        <aside class="widget clearfix widget_text">
+
+                                            <div class="textwidget">
+                                                <div style="padding-left:35%;">@Html.Partial("VoteShow", Model.Votes == null ? "0,0,0,0,1" : Model.Votes.ToString())</div>
+                                                @*<center>  @Html.Partial("VoteShow", voteInti.ToString())</center>*@
+
+                                                 <p></p>
+                                                    <center>
+                                                        <div data-toggle="modal" data-target="#teacher_inq">
+                                                            <span class="bg-primary text-white rounded"  style="padding:5%;">
+                                                                <b> Message</b>
+                                                            </span>
+                                                        </div>
+                                                    </center>
+                                                 
+                                             
+                                            </div>
+
+                                        </aside>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-8 ">
+                    <section id="skills" class="section padd-box brd-btm">
+                        <div class="col-sm-12 clear-mrg">
+                            <h2>@Html.DisplayFor(model => model.Heading)</h2>
+                            <dl class="dl-horizontal clear-mrg">
+                                <dt class="text-upper">Full Name</dt>
+                                <dd> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</dd>
+
+                                <dt class="text-upper">Ref. Id</dt>
+                                <dd>#@Html.DisplayFor(model => model.Id) </dd>
+
+                                <dt class="text-upper">Gender</dt>
+                                <dd>@Html.DisplayFor(model => model.Gender) </dd>
+
+                                @if (Model.IsAddress == true)
+                                {
+                                    <dt class="text-upper">Address</dt>
+                                    <dd>@Html.DisplayFor(model => model.Add1) @Html.DisplayFor(model => model.Add2) </dd>
+                                }
+
+                                @if (Model.IsMobile == true)
+                                {
+                                    <dt class="text-upper">Phone</dt>
+                                    <dd>@Html.DisplayFor(model => model.MobilePhone) </dd>
+                                }
+
+                                @if (Model.Active == true)
+                                {
+                                    <dt class="text-upper" style="color:green">Status</dt>
+                                    <dd style="color:green"><b>Available</b></dd>
+                                }
+                                else
+                                {
+                                    <dt class="text-upper" style="color:red">Status</dt>
+                                    <dd style="color:red"><b>unAvailable</b></dd>
+                                }
+
+                            </dl>
+
+                            <style>
+                                .link {
+                                    background-color: white;
+                                    color: black;
+                                    border: 2px solid #e7e7e7;
+                                    border-radius: 5px;
+                                    margin: 2px;
+                                    font-size: small;
+                                    padding: 5px;
+                                }
+
+                                    .link:hover {
+                                        background-color: #e7e7e7;
+                                    }
+                            </style>
+
+                            <div class="row">
+                                <p class="text-upper" style="text-transform: capitalize;font-weight: 700;color: #9a9a9a;">Taught Course</p>
+                                <div class="col-md-10">
+                                    @for (int i = 0; i < Model.AvailableCourses.Count; i++)
+                                    {
+                                        @if (Model.AvailableCourses[i].IsChecked == true)
+                                        {
+                                            @Html.HiddenFor(x => Model.AvailableCourses[i].Id)
+                                            var taglink = Model.AvailableCourses[i].Title.Replace(" ", "-");
+                                            <a href="/local-classes/@taglink" class="link">@Html.DisplayFor(it => Model.AvailableCourses[i].Title)</a>
+
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <p style="text-transform: capitalize;font-weight: 700;color: #9a9a9a;">Subject &nbsp;&nbsp;&nbsp;</p>
+                                <div class="col-md-10">
+                                    @for (int i = 0; i < Model.AvailableSubjects.Count; i++)
+                                    {
+                                        @if (Model.AvailableSubjects[i].IsChecked == true)
+                                        {
+                                            @Html.HiddenFor(x => Model.AvailableSubjects[i].Id)
+                                            var taglink = Model.AvailableSubjects[i].Title.Replace(" ", "-");
+                                            <a href="/local-classes/@taglink" class="link">@Html.DisplayFor(it => Model.AvailableSubjects[i].Title)</a>
+
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <p style="text-transform: capitalize;font-weight: 700;color: #9a9a9a;">Category &nbsp;&nbsp;&ensp;</p>
+                                <div class="col-md-10">
+                                    @for (int i = 0; i < Model.AvailableSubjectCategories.Count; i++)
+                                    {
+                                        @if (Model.AvailableSubjectCategories[i].IsChecked == true)
+                                        {
+                                            @Html.HiddenFor(x => Model.AvailableSubjectCategories[i].Id)
+                                            var taglink = Model.AvailableSubjectCategories[i].Title.Replace(" ", "-");
+                                            <a href="/local-classes/@taglink" class="link">@Html.DisplayFor(it => Model.AvailableSubjectCategories[i].Title)</a>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <p style="text-transform: capitalize;font-weight: 700;color: #9a9a9a;">Language &ensp; &nbsp;</p>
+                                <div class="col-md-10">
+                                    @for (int i = 0; i < Model.AvailableLanguages.Count; i++)
+                                    {
+                                        @if (Model.AvailableLanguages[i].IsChecked == true)
+                                        {
+                                            @Html.HiddenFor(x => Model.AvailableLanguages[i].Id)
+                                            var taglink = Model.AvailableLanguages[i].Title.Replace(" ", "-");
+                                            <a href="/local-classes/@taglink" class="link">@Html.DisplayFor(it => Model.AvailableLanguages[i].Title)</a>
+                                        }
+                                    }
+                                        </div>
+                            </div>
+
+
+                        </div>
+
+                    </section>
+                </div>
+
+                <div class="col-sm-1 rounded" style="background-color:rgba(17, 146, 128, 0.23);">
+                    <div id="tutNavWrap" class="hidden-sm hidden-xs">
+                        <div id="tutNavInner" class="tut-sticky" style="top: -1px; left: 945px; width: 56px; bottom: auto; ">
+                            <div class="tut-nav-cont">
+                                <div id="">
+                                    <nav id="tutNav" class="tut-nav">
+
+                                        <ul class="clear-list">
+
+                                            <li class="slg"><a href="#skills" data-tooltip="Skills"><img class="img1" src="~/content/img/skills.svg" title="skill" /> </a></li>
+                                            <li class="slg"><a href="#exp" data-tooltip="Experience"><span class=""><img class="img1" src="~/content/img/exp.svg" /> </span></a></li>
+                                            <li class="slg"><a href="#ref" data-tooltip="References"><span class=""><img class="img1" src="~/content/img/certificate.svg" /> </span></a></li>
+                                            @*<li class="slg"><a href="#blog" data-tooltip="Blog"><span class=""><img class="img1" src="~/content/img/skills.svg" /> Edu</span></a></li>*@
+                                            <li class="slg"><a href="#contacts" data-tooltip="Contacts"><span class=""><img class="img1" src="~/content/img/contact.svg" /></span></a></li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div id="tutNavTools" class="hidden">
+                                    <span class="tut-icon tut-icon-dots-three-horizontal"></span>
+                                    <button id="tutNavArrow" class="clear-btn"> <span class="tut-icon tut-icon-chevron-thin-down"></span> </button>
+                                </div>
+                            </div>
+                            <div class="tut-nav-btm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="timeline" class="section padd-box">
+                <h2 class="title-sm text-upper"></h2>
+                <div class="education">
+                    <div class="education-box">
+                        @*<span class="education-date"> <span>2006 - 2009</span> </span>*@
+                        @*<h3> <a href=" "> Bachelor of Art    </a></h3>*@
+                        @*<b> <span class="education-date"> <span>Full Detail:</span> </span></b>*@
+
+                        <h4>Hello, I’m @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)!</h4>
+                        @Html.Raw(Model.Description)
+                    </div>
+                </div>
+            </section>
+        </form>
+
+
+        @if (Model.GEducation != null && Model.GEducation != "" && Model.PEducation != null && Model.PEducation != "")
+        {
+            <section id="Education" class="section padd-box">
+                <h2 class="title-sm text-upper">Education</h2>
+                <div class="education">
+                    <div class="education-box">
+                        @*<span class="education-date"> <span>2006 - 2009</span> </span>*@
+                        <h3>  @Html.DisplayFor(model => model.GEducation)   </h3>
+                        <h3> @Html.DisplayFor(model => model.PEducation)   </h3>
+                        @*<a href=" "> <span class="education-company">tuitioner.in</span> </a>*@
+                    </div>
+                </div>
+            </section>
+        }
+        @if (Model.Experience != null && Model.Experience != "")
+        {
+            <section id="Experience" class="section padd-box">
+                <h2 class="title-sm text-upper">Experience</h2>
+                <div class="education">
+                    <div class="education-box">
+                        @* <span class="education-company">10 yeear teaching expricene dsfdsf dsf sdfr sdfs dfsd fsdf dsf</span>*@
+                        <h3> @Html.DisplayFor(model => model.Experience)   </h3>
+                    </div>
+                </div>
+            </section>
+        }
+
+        @*<section id="ref" class="section padd-box">
+            <h2 class="title-sm text-upper">References</h2>
+            <div class="ref-box-list padd-box-sm clear-mrg">
+                <div class="ref-box brd-btm hreview">
+                    <div class="ref-avatar"> <img alt="" src="~/UploadImage/architector-54x54.jpg" class="avatar avatar-54"></div>
+                    <div class="ref-info">
+                        <div class="ref-author"> <strong>edwin ballard</strong> <span>West Alexandrine</span></div>
+                        <blockquote class="ref-cont clear-mrg">
+                            <p>sdfsdsdsd</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+    </div>
+
+@await Component.InvokeAsync("TradingToday")
+@*@section Scripts
+    {
+    <script>
+                        //function myColy() {
+                        //    var Url = document.getElementById("url");
+                        //    Url.innerHTML = window.location.href;
+                        //    console.log(Url.innerHTML)
+                        //    Url.select();
+                        //    document.execCommand("copy");
+                        //}
+    </script>
+}*@

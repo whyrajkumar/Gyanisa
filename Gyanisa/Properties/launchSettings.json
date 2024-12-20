@@ -1,0 +1,68 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:61498/",
+      "sslPort": 44315
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://www.tuitioner.in/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "Gyanisa": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:61499/"
+    }
+  },
+  "commands": {
+      "Development": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV Development",
+      "Staging": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV Staging",
+      "Production": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV Production"
+    }
+}
+
+
+//{
+//  "iisSettings": {
+//    "windowsAuthentication": false,
+//    "anonymousAuthentication": true,
+//    "iisExpress": {
+//      "applicationUrl": "http://www.tuitioner.in/",
+//      "sslPort": 44315
+//    }
+//  },
+//  "profiles": {
+//    "IIS Express": {
+//      "commandName": "IISExpress",
+//      "launchBrowser": true,
+//      "launchUrl": "http://www.tuitioner.in/",
+//      "environmentVariables": {
+//        //"ASPNETCORE_ENVIRONMENT": "Development"
+//      }
+//    },
+//    "Gyanisa": {
+//      "commandName": "Project",
+//      "launchBrowser": true,
+//      "environmentVariables": {
+//        "ASPNETCORE_ENVIRONMENT": "Production"
+//      },
+//      "applicationUrl": "http://www.tuitioner.in/"
+//    }
+//  },
+//  "commands": {
+//    "Development": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV Development",
+//    "Staging": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV Staging",
+//    "Production": "Microsoft.AspNet.Server.Kestrel --ASPNET_ENV Production"
+//  }
+//}

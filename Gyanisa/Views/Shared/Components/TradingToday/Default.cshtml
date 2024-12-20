@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Gyanisa.Models.UserInformation>
+@{
+
+}
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-7 text-left border-primary">
+                <h2 class="font-weight-light text-primary">Find Top 10 Tutors, Tuition Institutes Near Me</h2>
+                <p class="color-black-opacity-5">Online Teachers from all over,anyWhere and anyTime in India</p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            @foreach (var user in Model.Take(3))
+            { 
+                var image_path = "";
+                <div class="col-lg-6">
+
+                    @if (!string.IsNullOrEmpty(user.UserPhoto))
+                    {
+                        image_path = $"/UserImage/{user.UserPhoto}";
+                    }
+                    else
+                    {
+                        image_path = $"/UserImage/empty_user";
+                    }
+
+                    <div class="d-block d-md-flex listing">
+                        <a href="@(Url.Action("Details", "Tutor", new { id = user.UserID,Title=user.Slug }))" class="img d-block" style="background-image: url('@image_path')"></a>
+                        <div class="lh-content">
+                            <span class="category">@user.FirstName  @user.LastName</span>
+                            <a href="#" class="bookmark"><span class="icon-heart"></span></a>
+                            <div style="max-height:38px;overflow:hidden;"><h3><a href="@(Url.Action("Details", "Tutor", new { id = user.UserID,Title=user.Slug }))">@user.Heading   </a></h3></div>
+                            <div style="max-height:50px;overflow:hidden;">
+                                <address>@user.Add2</address>
+                            </div>
+                                @Html.Partial("VoteShow", user.Votes == null ? "0,0,0,0,1" : user.Votes.ToString())
+                            </div>
+                        </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="site-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center border-primary">
+                <h2 class="font-weight-light text-primary">Why Tutors love Tuition Engineer?</h2>
+            </div>
+        </div>
+        <div class="slide-one-item home-slider owl-carousel">
+            <div>
+                <div class="testimonial">
+                    <figure class="mb-4">
+                        <img src="/images/person_3.jpg" alt="Image" class="img-fluid mb-3">
+                        <p>John Smith</p>
+                    </figure>
+                    <blockquote>
+                        <p>&ldquo;Tuitioner’s best-in-class implementation and client support groups square measure on decision to form positive your transition is seamless and answer any queries you have got through the method.&rdquo;</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Gyanisa.Models.Admin.TermAndService>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+ 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aboutus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FAQ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Guidelines)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PaymentRates)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Licenses)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TermsCondition)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrivacyPolicy)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.Raw(item.Aboutus)
+            </td>
+            <td>
+                @Html.Raw(item.FAQ)
+            </td>
+            <td>
+                @Html.Raw(item.Guidelines)
+            </td>
+            <td>
+                @Html.Raw(item.PaymentRates)
+            </td>
+            <td>
+                @Html.Raw(item.Licenses)
+            </td>
+            <td>
+                @Html.Raw(item.TermsCondition)
+            </td>
+            <td>
+                @Html.Raw(item.PrivacyPolicy)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ 

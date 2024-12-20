@@ -1,0 +1,451 @@
+﻿@model Gyanisa.Models.UserInformation
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+
+    var image_path = "";
+  //  var role = Model.Role;
+}
+
+@if (!string.IsNullOrEmpty(Model.UserPhoto))
+{
+    image_path = $"/UserImage/{Model.UserPhoto}";
+}
+else
+{
+    image_path = $"/UserImage/empty_user.jpg";
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="breadcrumb-wrapper">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Teacher Profile</li>
+            </ol>
+        </div>
+    </div>
+    <div class="col-md-6"></div>
+</div>
+
+<!-- braedcrumb close -->
+<div class="panel-wrapper">
+    <div class="panel-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Teacher Profile</h3>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="potrait-wrapper">
+                    <div class="img-wrapper">
+                        <img src="@image_path" alt="" />
+                    </div>
+                    <div class="potrait-table">
+                        <table class="table">
+                            <tr>
+                                <th>Teacher ID:</th>
+                                <td>  @Model.UserID  </td>
+                            </tr>
+                            <tr>
+                                <th>Teacher Name:</th>
+                                <td> @Model.FirstName @Model.LastName</td>
+                            </tr>
+                            <tr>
+                                <th>Department:</th>
+                                <td>CSE</td>
+                            </tr>
+                            <tr>
+                                <th>Subject</th>
+                                <td>English</td>
+                            </tr>
+                            <tr>
+                                <th>Joining Date</th>
+                                <td>@Model.AddedDate</td>
+                            </tr>
+                            <tr>
+                                <th>Rating</th>
+                                <td>@Html.Partial("VoteShow", Model.Votes == null ? "0,0,0,0,1" : Model.Votes.ToString())</td>
+                                
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="panel-wrapper">
+                    <div class="panel-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Basic Info</h5>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="potrait-table">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Address:</th>
+                                            <td>@Model.Add1 @Model.Add2</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Contact:</th>
+                                            <td>@Model.MobilePhone</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email:</th>
+                                            <td>@Model.Email</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Religion:</th>
+                                            <td>?</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Nationality:</th>
+                                            <td>@Model.Add2</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Blood Group:</th>
+                                            <td>?</td>
+                                        </tr>
+                                        <tr>
+                                            <th>DOB:</th>
+                                            <td>@Model.DOB</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-wrapper">
+                    <div class="panel-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Payroll Info</h5>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="potrait-table">
+                                    <table class="table">
+                                        <tr>
+                                            <th>Payment Date</th>
+                                            <th>Account Name</th>
+                                            <th>Payment Type</th>
+                                            <th>Amount</th>
+                                            <th>Remarks</th>
+                                        </tr>
+                                        <tr>
+                                            <td>30-01-18</td>
+                                            <td>DBBL-102</td>
+                                            <td>Card</td>
+                                            <td>20,000</td>
+                                            <td>Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td>30-02-18</td>
+                                            <td>DBBL-102</td>
+                                            <td>Card</td>
+                                            <td>20,000</td>
+                                            <td>Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td>30-03-18</td>
+                                            <td>DBBL-102</td>
+                                            <td>Card</td>
+                                            <td>20,000</td>
+                                            <td>Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td>30-04-18</td>
+                                            <td>DBBL-102</td>
+                                            <td>Card</td>
+                                            <td>20,000</td>
+                                            <td>Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td>30-05-18</td>
+                                            <td>DBBL-102</td>
+                                            <td>Card</td>
+                                            <td>20,000</td>
+                                            <td>Paid</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<h2>Details</h2>
+    <div>
+        <h4>UserInformation</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AddedDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AddedDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IPAddress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IPAddress)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DOB)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DOB)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MobilePhone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MobilePhone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Heading)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Heading)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.HourlyFee)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.HourlyFee)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Add1)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Add1)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Add2)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Add2)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserPhoto)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserPhoto)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Active)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Roles)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Roles)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CvDescription)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CvDescription)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsHisHome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsHisHome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsYourHome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsYourHome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsWebCam)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsWebCam)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.GEducation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.GEducation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PEducation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PEducation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Experience)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Experience)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ViewCount)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ViewCount)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Votes)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Votes)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsMobile)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsMobile)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsEmail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsEmail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAddress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsAddress)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsEducation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsEducation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsGirl)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsGirl)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsBoy)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsBoy)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsCoed)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsCoed)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Slug)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Slug)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaTitle)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MetaTitle)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaKeywords)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MetaKeywords)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MetaDescription)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MetaDescription)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Metaabstract)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Metaabstract)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.User)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.User.Id)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.UserID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

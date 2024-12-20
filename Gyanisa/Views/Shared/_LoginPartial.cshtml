@@ -1,0 +1,48 @@
+@using Microsoft.AspNetCore.Identity
+@using Gyanisa.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+    <li class="has-children">
+        <a href="">Account</a>
+        <ul class="dropdown">
+            <li l-xl-3 login>
+                <a asp-controller="Manage" asp-action="UpdateProfile">@UserManager.GetUserName(User) Profile</a>
+            </li>
+
+            <li l-xl-3 login>
+                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+                    @*<a asp-controller="Account" asp-action="Logout" title="Log out"><span class="border-left pl-xl-4"></span>Log out</a>*@
+                     <button class="success" type="submit">Log Out</button>
+                </form>
+            </li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li l-xl-3 login>
+                    <a asp-controller="Dashboard" asp-action="Index" title="Admin"><span class="border-left pl-xl-4"></span>Admin</a>
+                </li>
+            }
+        </ul>
+    </li>
+
+
+}
+else
+{
+    <li class="has-children">
+        <a asp-controller="Account" asp-action="Login">Login</a>
+        <ul class="dropdown">
+            <li class="ml-xl-3 login"><a asp-area="" asp-controller="Account" asp-action="Register"><span class="border-left pl-xl-4"></span>Register</a></li>
+            <li class="ml-xl-3 login"><a asp-area="" asp-controller="Account" asp-action="Login"><span class="border-left pl-xl-4"></span>Log in</a></li>
+
+        </ul>
+    </li>
+}

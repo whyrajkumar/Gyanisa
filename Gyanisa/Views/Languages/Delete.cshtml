@@ -1,0 +1,64 @@
+﻿@model Gyanisa.Models.Admin.Language
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Language</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LanguageName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LanguageCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaKeywords)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaKeywords)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MetaDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Metaabstract)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Metaabstract)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

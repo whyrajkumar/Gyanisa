@@ -1,0 +1,525 @@
+﻿ 
+@{
+
+    ViewBag.Title = "Find Top Tutors,Trainers And Coaching Centers-Tuitioner";
+    ViewBag.Keywords = "Teacher Near me,Tutor near me,Make-Money,parttime jobs,fulltime jobs,how to";
+    ViewBag.Description = "Tuitioner is a private tutors directory in India  to teach face-to-face and or online in over top subjects.";
+    ViewBag.Abstract = "Learn from top Tutors and Coaching Centers for Tuition, Exam Prep, Hobby Classes, IT Courses, and hundreds of other learning categories, on India's favourite Learning Marketplace.";
+
+}
+
+<!-- Header #homepage -->
+
+
+<div class="site-blocks-cover overlay" style="background-image: url(../images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-12">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-8 text-center">
+                        <h1 class="">Hello Teacher'S In The Tuition Engineer</h1>
+                        <p>
+                            @*  Learn anywhere. Learn from anyone.*@
+                            Grow your businesses with Tuition ER
+                        </p>
+                    </div>
+                </div>
+                <div class="form-search-wrap">
+                    <form id="search_form" method="get" asp-controller="tutor" asp-action="search" accept-charset="utf-8">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-4">
+                                <input id="Subject1" class="form-control rounded" name="subject" placeholder="Choose your Subject(E.g. Maths,English)" />
+                            </div>
+
+                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-4">
+                                <div class="wrap-icon">
+
+                                    <input id="Location" class="form-control rounded" name="city" placeholder="Address Or City Or PIN" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                                <input type="submit" class="btn btn-primary text-white btn-block rounded" value="Search">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="overlap-category mb-5">
+            <div class="row align-items-stretch no-gutters">
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="/local-classes/Academics" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-house"></span></span>
+                        <span class="caption mb-2 d-block">Academic</span>
+                        <span class="number">3,921</span>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="/local-classes/home-work" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-books"></span></span>
+                        <span class="caption mb-2 d-block">Home &amp; Work</span>
+                        <span class="number">398</span>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="/local-classes/girl" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-bunk-bed"></span></span>
+                        <span class="caption mb-2 d-block">Girls Tutor</span>
+                        <span class="number">1,229</span>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="/local-classes/cbse" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-innovation"></span></span>
+                        <span class="caption mb-2 d-block">CBSE & ICSE Tuition</span>
+                        <span class="number">32,891</span>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="/local-classes/Languages" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-car"></span></span>
+                        <span class="caption mb-2 d-block">Languages</span>
+                        <span class="number">29,221</span>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
+                    <a href="/local-classes/Languages" class="popular-category h-100">
+                        <span class="icon"><span class="flaticon-pizza"></span></span>
+                        <span class="caption mb-2 d-block">Other</span>
+                        <span class="number">219</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        @await Component.InvokeAsync("TutorRecommend")
+    </div>
+</div>
+
+<div class="site-section" data-aos="fade">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center border-primary">
+                <h2 class="font-weight-light ">
+                    Learn
+                    <span class="text-primary">AnyWhere</span>
+                    you want
+                </h2>
+                <p class="color-black-opacity-5">Find Top Tutors, Trainers & Institutes near me</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" title="Top 10 Math Tuition or Teacher in near me">
+                <div class="listing-item">
+                    <div class="listing-image">
+                         <img src="/images/img_1.webp" alt="Jaipur,Rajasthan" class="img-fluid">
+                    </div>
+                    <div class="listing-item-content">
+                        <a href="~/Tutor/Search/search?subject=&city=jaipur" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        <a class="px-3 mb-3 category" href="/city/rajapark-jaipur/all-tutors">RajaPark</a>
+                        <a class="px-3 mb-3 category" href="/city/vashalinagar-jaipur/all-tutors">Vashali Nagar</a>
+                        <a class="px-3 mb-3 category" href="/city/sastrinagar-jaipur/all-tutors">Sastri Nagar</a>
+                        <a class="px-3 mb-3 category" href="/city/vidhyadhar-jaipur/all-tutors">Vidhyadhar Nagar</a>
+                        <a class="px-3 mb-3 category" href="/city/sitapura-jaipur/all-tutors">Sitapura</a>
+                        <a class="px-3 mb-3 category" href="/city/gopalpura-jaipur/all-tutors">Gopalpura</a>
+                        <a class="px-3 mb-3 category" href="/city/mansarovar-jaipur/all-tutors">Mansarovar</a>
+                        <h2 class="mb-1"><a href="/city/jaipur/all-tutors">Jaipur with PinkCity</a></h2>
+                        <span class="address">Jaipur,Rajasthan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                <div class="listing-item">
+                    <div class="listing-image">
+                        <img src="/images/img_2.webp" alt="Udaipur, Rajasthan" class="img-fluid">
+                    </div>
+                    <div class="listing-item-content">
+                        <a href="#" class="bookmark"><span class="icon-heart"></span></a>
+                        <a class="px-3 mb-3 category" href="#">IIM</a>
+                        <h2 class="mb-1"><a href="/city/udaipur/all-tutors">Udaipur with JagMandir</a></h2>
+                        <span class="address">Udaipur, Rajasthan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+
+                <div class="listing-item">
+                    <div class="listing-image">
+                        <img src="/images/img_3.webp" alt="Ajmer, Rajasthan" class="img-fluid">
+                    </div>
+                    <div class="listing-item-content">
+                        <a href="#" class="bookmark"><span class="icon-heart"></span></a>
+                        <a class="px-3 mb-3 category" href="#">RPSC</a>
+                        <h2 class="mb-1"><a href="/city/jaipur/all-tutors">Ajmer  &amp; Education</a></h2>
+                        <span class="address">Ajmer, Rajasthan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 mb-lg-4 col-lg-6">
+
+                <div class="listing-item">
+                    <div class="listing-image">
+                        <img src="/images/img_4.webp" alt="Kota Rajasthan" class="img-fluid">
+                    </div>
+                    <div class="listing-item-content">
+                        <a href="#" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                        <a class="px-3 mb-3 category" href="#">IT College</a>
+                        <h2 class="mb-1"><a href="/city/kota/all-tutors">Kota with Science</a></h2>
+                        <span class="address">Kota , Rajasthan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 mb-lg-4 col-lg-6">
+                <div class="listing-item">
+                    <div class="listing-image">
+                        <img src="/images/img_5.webp" alt="Jodhpur , Rajasthan" class="img-fluid">
+                    </div>
+                    <div class="listing-item-content">
+                        <a href="#" class="bookmark"><span class="icon-heart"></span></a>
+                        <a class="px-3 mb-3 category" href="#">Mathmatics</a>
+                        <h2 class="mb-1"><a href="/city/jodhpur/all-tutors">Blue City  &amp; Jodhpur</a></h2>
+                        <span class="address">Jodhpur , Rajasthan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+<div class="home_tutoring">
+    <div class="main_wrapper">
+        <h2>
+            Classes at home
+        </h2>
+        <div class="inner_wrapper">
+            <ul>
+                <li><a href="/city/ahmedabad/all-tutors">Ahmedabad</a></li>
+                <li><a href="/city/bangalore/all-tutors">Bangalore</a></li>
+                <li><a href="/city/bhopal/all-tutors">Bhopal</a></li>
+                <li><a href="/city/bhubaneswar/all-tutors">Bhubaneswar</a></li>
+                <li><a href="/city/chandigarh/all-tutors">Chandigarh</a></li>
+                <li><a href="/city/chennai/all-tutors">Chennai</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/city/coimbatore/all-tutors">Coimbatore</a></li>
+                <li><a href="/city/delhi/all-tutors">Delhi</a></li>
+                <li><a href="/city/durgapur/all-tutors">Durgapur</a></li>
+                <li><a href="/city/faridabad/all-tutors">Faridabad</a></li>
+                <li><a href="/city/ghaziabad/all-tutors">Ghaziabad</a></li>
+                <li><a href="/city/gurgaon/all-tutors">Gurgaon</a></li>
+            </ul>
+            <ul>
+                <li><a href="/city/guwahati/all-tutors">Guwahati</a></li>
+                <li><a href="/city/howrah/all-tutors">Howrah</a></li>
+                <li><a href="/city/hyderabad/all-tutors">Hyderabad</a></li>
+                <li><a href="/city/indore/all-tutors">Indore</a></li>
+
+                <li><a href="@(Url.Action("Citytuition", "Tutor", new { city = "jaipur",subject="all-tutors" }))">Jaipur</a></li>
+                <li><a href="/city/kanpur/all-tutors">Kanpur</a></li>
+            </ul>
+            <ul>
+                <li><a href="/city/kochi/all-tutors">Kochi</a></li>
+                <li><a href="/city/kolkata/all-tutors">Kolkata</a></li>
+                <li><a href="/city/lucknow/all-tutors">Lucknow</a></li>
+                <li><a href="/city/mumbai/all-tutors">Mumbai</a></li>
+                <li><a href="/city/nagpur/all-tutors">Nagpur</a></li>
+                <li><a href="/city/navi-mumbai/all-tutors">Navi Mumbai</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/city/noida/all-tutors">Noida</a></li>
+                <li><a href="/city/patna/all-tutors">Patna</a></li>
+                <li><a href="/city/pune/all-tutors">Pune</a></li>
+                <li><a href="/city/vadodara/all-tutors">Vadodara</a></li>
+                <li><a href="/city/vijayawada/all-tutors">Vijayawada</a></li>
+                <li><a href="/city/visakhapatnam/all-tutors">Visakhapatnam</a></li>
+            </ul>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+@await Component.InvokeAsync("TradingToday")
+ 
+<div class="home_tutoring">
+    <div class="main_wrapper">
+        <h2>
+            For all levels Tutors
+        </h2>
+        <div class="inner_wrapper">
+            <ul>
+                <li><a href="/local-classes/"><b>Nursery Level</b></a></li>
+                <li><a href="/local-classes/LKG">LKG</a></li>
+                <li><a href="/local-classes/UKG">UKG</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/local-classes/Primary-School"><b>Primary School</b></a></li>
+                <li><a href="/local-classes/Class-1">Class 1-5</a></li>
+            </ul>
+            <ul>
+                <li><a href="/local-classes/Middle-School"><b>Middle School</b></a></li>
+                <li><a href="/local-classes/Class-6">Class-6</a></li>
+                <li><a href="/local-classes/Class-7">Class-7</a></li>
+                <li><a href="/local-classes/Class-8">Class-8</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/local-classes/Secoundry-Class"><b>Secoundry Class</b></a></li>
+                <li><a href="/local-classes/Class-9">Class-9</a></li>
+                <li><a href="/local-classes/Class-10">Class-10</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/local-classes/Board-Class"><b>Board Class</b></a></li>
+                <li><a href="/local-classes/Class-10">Class-10</a></li>
+                <li><a href="/local-classes/Class-12">Class-12</a></li>
+                <li><a href="/local-classes/CBSE">CBSE</a></li>
+                <li><a href="/local-classes/SSC">SSC</a></li>
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="home_tutoring">
+    <div class="main_wrapper">
+        <h2>
+            Activities Classes Near me
+        </h2>
+        <div class="inner_wrapper">
+            <ul>
+                <li><a href="/local-classes/academics"><b>Academics</b></a></li>
+                <li><a href="/local-classes/abacus-training">Abacus Training</a></li>
+                <li><a href="/local-classes/olympiad-exam-preparation">Olympiad Exam Preparation</a></li>
+                <li><a href="/local-classes/personality-development">Personality Development</a></li>
+
+            </ul>
+
+            <ul>
+                <li><a href="/local-classes/languages"><b>Languages</b></a></li>
+                <li><a href="/local-classes/english">English</a></li>
+                <li><a href="/local-classes/spanish">Spanish</a></li>
+                <li><a href="/local-classes/french">French</a></li>
+                <li><a href="/local-classes/chinese">Chinese</a></li>
+                <li><a href="/local-classes/italian">Italian</a></li>
+            </ul>
+            <ul>
+                <li><a href="/local-classes/music"><b>Music</b></a></li>
+                <li><a href="/local-classes/instrumental">Instrumental </a></li>
+                <li><a href="/local-classes/indian-classical">Indian Classical</a></li>
+                <li><a href="/local-classes/violin">Violin </a></li>
+                <li><a href="/local-classes/western-classical">Western Classical</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/local-classes/sports"><b>Sports</b></a></li>
+                <li><a href="/local-classes/cricket">Cricket</a></li>
+                <li><a href="/local-classes/swimming">Swimming</a></li>
+                <li><a href="/local-classes/boxing">Boxing</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/local-classes/arts-&-Hobbies"><b>Arts & Hobbies</b></a></li>
+                <li><a href="/local-classes/cooking">Cooking</a></li>
+                <li><a href="/local-classes/drawing">Drawing</a></li>
+                <li><a href="/local-classes/acting">Acting</a></li>
+                <li><a href="/local-classes/sewing">Sewing</a></li>
+
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+@*@await Component.InvokeAsync("Blog")*@
+
+<!-- Featured-On #homepage Slider -->
+@*<div class="row">
+
+
+    </div>*@
+
+@*<section class="how-it-works">
+        <div class="container">
+            <div class="row row-margin">
+                <div class="col-sm-12 ">
+                    <h1 class="hero-title">
+                        Learn with confidence
+                    </h1>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="step-block center-block">
+                        <div class="step-img">
+                            <img alt="" src="~/images/step1.png" />
+                            <div class="step-icon">
+                                1
+                            </div>
+                        </div>
+                        <h4>
+                            Find
+                        </h4>
+                        <p>
+                            the perfect private tutor from our accredited & graded database.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="step-block center-block">
+                        <div class="step-img">
+                            <img alt="" src="~/images/step2.png" />
+                            <div class="step-icon">
+                                2
+                            </div>
+                        </div>
+                        <h4>
+                            Review
+                        </h4>
+                        <p>
+                            Read feedback and ratings from parents and students.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="step-block center-block">
+                        <div class="step-img">
+                            <img alt="" src="~/images/step3.png" />
+                            <div class="step-icon">
+                                3
+                            </div>
+                        </div>
+                        <h4>
+                            Book
+                        </h4>
+                        <p>
+                            your first 1-on-1 class today & get an answer from the teacher(s) within 24 hours. Whether you need a single lesson.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="step-block center-block">
+                        <div class="step-img">
+                            <img alt="" src="~/images/step4.png" />
+                            <div class="step-icon">
+                                4
+                            </div>
+                        </div>
+                        <h4>
+                            Manage
+                        </h4>
+                        <p>
+                            your tuition fees, timing(s) & communication with your tuition teacher.First Lession Free.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>*@
+
+<!-- Ends Howitwork #homepage -->
+<!-- Bacome Tutor as Private Teacher -->
+@*<section style="background-color: #f6f6f6;">
+        <div class="container">
+            <div class="row row-margin">
+                <div class="col-md-12">
+                    <h2 class="heading color_heading">  <b>Become A Teacher &amp; Tutor </b></h2>
+                    <p class="heading-tag">Start Your Own Tution Business For <strong> free</strong>.</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-sm-12">
+                    <div class="choose-block center-block">
+                        <div class="icon">
+                            <img src="~/images/DemoProfile.png">
+                        </div>
+
+                        <p>Offer your Tutoring Service like a brand from every one </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-sm-12">
+                    <div class="choose-block center-block">
+                        <div class="icon">
+                            <img src="~/images/DemoConnect.png" alt="">
+                        </div>
+
+                        <p>Set you own Hourly Rate</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-sm-12">
+                    <div class="choose-block center-block">
+                        <div class="icon">
+                            <img src="~/images/DemoHourlyRate.png" alt="">
+                            <p>Boost your business</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="heading">
+                        <button type="submit" class="btn btn-search">
+                            Become a Teacher
+                        </button>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>*@
+
+
+
+
+@*@await Component.InvokeAsync("TutorRating")*@
+
+
+
+<!-- Blog End -->
+
+@section Scripts
+    {
+
+    <script>
+        $(document).ready(function () {
+            $('#Subject1').autocomplete({
+                source: '/tutor/subjectSearch'
+            });
+            $('#Location').autocomplete({
+                source: '/tutor/locationsearch'
+            });
+        });
+
+        $(document).ready(function () {
+          
+        });
+
+
+    </script>
+}
+

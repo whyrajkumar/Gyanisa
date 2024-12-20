@@ -1,0 +1,110 @@
+﻿@model Gyanisa.Models.ViewModel.PostViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Dashboard/_Layout1.cshtml";
+    var image_path = "";
+}
+
+
+@if (!string.IsNullOrEmpty(Model.CurrentImage))
+{
+    image_path = $"/BlogImage/{Model.CurrentImage}";
+}
+else
+{
+    image_path = $"/BlogImage/{Model.CurrentImage}";
+}
+<!-- include libraries(jQuery, bootstrap) -->
+@*<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">*@
+<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+<h4>Blog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-9">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Slug" class="control-label"></label>
+                <input asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postgroupid" class="control-label"></label>
+                <select asp-for="Postgroupid" class="form-control" asp-items="ViewBag.PostGroupID"></select>
+                <span asp-validation-for="Postgroupid" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <textarea id="editor" asp-for="Body"></textarea>
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="col-1">
+                <div>
+                    <img src="@image_path" height="90" width="150" alt="Image" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MetaKeywords" class="control-label"></label>
+                <input asp-for="MetaKeywords" class="form-control" />
+                <span asp-validation-for="MetaKeywords" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetaDescription" class="control-label"></label>
+                <textarea asp-for="MetaDescription" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="MetaDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Metaabstract" class="control-label"></label>
+                <textarea asp-for="Metaabstract" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Metaabstract" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section scripts{
+    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>*@
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/lib/Trumbowyg-master/dist/trumbowyg.min.js"></script>
+    <script>
+        $('#editor').trumbowyg();
+
+
+
+
+        $('#Abouteditor').trumbowyg({
+            height: 300,
+            tabsize: 2,
+            followingToolbar: true,
+        });
+
+
+
+    </script>
+
+}
